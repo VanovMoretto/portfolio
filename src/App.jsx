@@ -1,15 +1,33 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+import './App.css';
+import { ThemeToggleButton } from './components/ThemeToggleButton';
 
-function App() {
-  const [count, setCount] = useState(0);
+
+function PortfolioContent() {
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="app-content">
+      <header>
+        <nav className='main-nav'> 
+          <ThemeToggleButton /> 
+        </nav>
+      </header>
+      
+      <main style={{ textAlign: 'center', marginTop: '4rem' }}>
+        <h1>Meu Portfólio</h1>
+        <p>Desenvolvedor Front-end | Foco em React/Vite</p>
+      </main>
     </div>
+  );
+}
+
+
+function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioContent />
+    </ThemeProvider>
   );
 }
 
