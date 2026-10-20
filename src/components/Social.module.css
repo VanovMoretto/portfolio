@@ -1,0 +1,7 @@
+.social { display: flex; gap: 10px }
+.social a {
+  width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; border: 1px solid #7fb0ff44; color: var(--gelo);
+  transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+}
+.social a:hover { transform: translateY(-3px); border-color: transparent; background: linear-gradient(135deg, var(--azul), #1a3fb0); box-shadow: 0 10px 30px #2f5bd677 }
+.social svg { width: 22px; height: 22px }

@@ -1,0 +1,6 @@
+.contato { display: grid; justify-items: center; gap: 18px; text-align: center }
+.chamada {
+  max-width: 14ch; font-family: var(--titulo); font-weight: 800; font-size: clamp(2.4rem, 7vw, 5rem); line-height: 1; letter-spacing: -.03em;
+  background: linear-gradient(120deg, #fff, var(--ceu)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 12px }

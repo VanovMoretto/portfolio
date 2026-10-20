@@ -1,0 +1,68 @@
+.hero { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); align-items: center; gap: 32px; padding-top: 120px }
+
+/* única sequência de entrada orquestrada: o texto sobe em cascata */
+.texto > * { animation: entrar 1s cubic-bezier(.2, .7, .2, 1) both }
+.texto > :nth-child(2) { animation-delay: .12s }
+.texto > :nth-child(3) { animation-delay: .24s }
+.texto > :nth-child(4) { animation-delay: .36s }
+.texto > :nth-child(5) { animation-delay: .48s }
+@keyframes entrar { from { opacity: 0; transform: translateY(28px); filter: blur(8px) } }
+
+.selo { display: inline-flex; padding: 6px 14px; margin-bottom: 22px; border: 1px solid #7fb0ff33; border-radius: 999px; color: var(--ceu); font-size: .9rem }
+.nome {
+  font-family: var(--titulo); font-weight: 800; font-size: clamp(3rem, 9vw, 6.6rem); line-height: .95; letter-spacing: -.035em;
+  background: linear-gradient(100deg, #fff 20%, var(--ceu) 60%, #3f6dff); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.cargo { font-family: var(--titulo); font-weight: 600; font-size: clamp(1.3rem, 3vw, 1.9rem); margin: 18px 0 8px }
+
+.acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px }
+.primario, .secundario { padding: 13px 26px; border-radius: 12px; font-weight: 600; text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s }
+.primario { color: #fff; background: linear-gradient(135deg, var(--azul), #1a3fb0); box-shadow: 0 8px 30px #2f5bd655 }
+.primario:hover { transform: translateY(-2px); box-shadow: 0 12px 40px #2f5bd699 }
+.secundario { border: 1px solid #7fb0ff44; color: var(--gelo) }
+.secundario:hover { background: #7fb0ff1a }
+
+/* astrolábio: anéis girando com as tecnologias */
+.cena { display: grid; justify-items: center }
+.orbita { position: relative; width: 520px; height: 520px }
+.nucleo {
+  position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 150px; height: 150px; padding: 16px;
+  display: grid; align-content: center; justify-items: center; gap: 4px; text-align: center; border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--c) 55%, var(--marinho)), var(--meia) 72%);
+  border: 1px solid color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow: 0 0 60px color-mix(in srgb, var(--c) 45%, transparent), inset 0 0 24px #7fb0ff33;
+  transition: box-shadow .35s, border-color .35s, background .35s;
+}
+.nucleo strong { font-family: var(--titulo); font-size: 1.25rem; line-height: 1.1 }
+.nucleo small { font-size: .72rem; line-height: 1.25; opacity: .85 }
+.anel { position: absolute; top: 50%; left: 50%; width: 0; height: 0; animation: giro var(--dur) linear infinite var(--dir) }
+.anel::before {
+  content: ''; position: absolute; width: calc(var(--r) * 2); height: calc(var(--r) * 2);
+  left: calc(var(--r) * -1); top: calc(var(--r) * -1); border: 1px solid #7fb0ff2e; border-radius: 50%;
+}
+.tracejado::before { border-style: dashed }
+.pos { position: absolute; transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(var(--a) * -1)) translate(-50%, -50%) }
+.chip {
+  display: block; white-space: nowrap; padding: 7px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600; color: var(--gelo);
+  background: #050d24d9; border: 1px solid color-mix(in srgb, var(--c) 60%, transparent);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--c) 35%, transparent); animation: giro var(--dur) linear infinite var(--idir);
+}
+.orbita:hover .anel, .orbita:hover .chip { animation-play-state: paused }
+@keyframes giro { to { rotate: 360deg } }
+
+.legenda { display: flex; align-items: center; gap: 10px; margin-top: 6px; color: var(--suave); font-size: .9rem }
+.ponto { width: 10px; height: 10px; border-radius: 50%; background: var(--ceu); box-shadow: 0 0 10px var(--ceu) }
+.pontoBack { margin-left: 14px; background: transparent; border: 1px dashed var(--ceu); box-shadow: none }
+
+@media (max-width: 1180px) { .orbita { scale: .8; margin: -52px 0 } }
+@media (max-width: 960px) { .hero { grid-template-columns: minmax(0, 1fr); padding-top: 110px } .orbita { scale: .64; margin: -94px 0 } }
+
+/* tecnologia acende na própria cor; as outras escurecem */
+.chip { outline: none; transition: background .25s, border-color .25s, box-shadow .25s, color .25s, scale .25s, opacity .25s }
+.chip:hover, .chip:focus-visible { color: #fff; scale: 1.14; border-color: var(--c); background: color-mix(in srgb, var(--c) 30%, #050d24); box-shadow: 0 0 36px var(--c), 0 0 8px var(--c) }
+.orbita:has(.chip:hover) .chip:not(:hover), .orbita:has(.chip:focus-visible) .chip:not(:focus-visible) { opacity: .35 }
+.orbita:focus-within .anel, .orbita:focus-within .chip { animation-play-state: paused }
+
+/* corrige o hover: a linha do anel não pode capturar o mouse */
+.anel::before { pointer-events: none }
+.acoes { align-items: center }
