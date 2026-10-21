@@ -3,18 +3,26 @@
 :root {
   --noite: #030814; --meia: #071230; --marinho: #0b1d4a; --azul: #2f5bd6;
   --ceu: #7fb0ff; --gelo: #e8efff; --suave: #9aa9cf;
+  --forte: #fff; --fim: #000; --vidro: #030814b3; --chip: #050d24d9; --card1: #0d1d4acc; --card2: #030814ee;
   --titulo: 'Bricolage Grotesque', system-ui, sans-serif;
   --texto: 'Instrument Sans', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-theme='light'] {
+  --noite: #f6f8ff; --meia: #eef3ff; --marinho: #d9e4ff;
+  --ceu: #2f5bd6; --gelo: #13204a; --suave: #4f5d82;
+  --forte: #0a1633; --fim: #fff; --vidro: #ffffffc2; --chip: #ffffffeb; --card1: #ffffffd9; --card2: #eef3ffee;
+  color-scheme: light;
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 72px }
 
 body {
   font-family: var(--texto); color: var(--gelo); line-height: 1.6; overflow-x: hidden;
-  background: linear-gradient(180deg, var(--marinho) 0%, var(--meia) 26%, var(--noite) 60%, #000 100%) fixed var(--noite);
+  background: linear-gradient(180deg, var(--marinho) 0%, var(--meia) 26%, var(--noite) 60%, var(--fim) 100%) fixed var(--noite);
 }
 
-/* brilho azul que se move com a rolagem (parallax) */
 body::before {
   content: ''; position: fixed; z-index: -1; pointer-events: none;
   inset: -20% -10% auto auto; width: 70vw; height: 70vw;
@@ -31,24 +39,39 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--ceu); outline-o
 
 .nav {
   position: fixed; top: 14px; left: 50%; translate: -50% 0; z-index: 10; display: flex; align-items: center; gap: 4px;
-  padding: 6px; border: 1px solid #7fb0ff22; border-radius: 999px; background: #030814b3; backdrop-filter: blur(14px);
+  padding: 6px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent); border-radius: 999px; background: var(--vidro); backdrop-filter: blur(14px);
 }
 .nav a { padding: 6px 14px; border-radius: 999px; color: var(--suave); text-decoration: none; font-size: .9rem; transition: .2s }
-.nav a:hover { color: #fff; background: #7fb0ff1f }
-.nav .logo { font-family: var(--titulo); font-weight: 800; color: #fff }
-
+.nav a:hover { color: var(--forte); background: color-mix(in srgb, var(--ceu) 12%, transparent) }
+.nav .logo { font-family: var(--titulo); font-weight: 800; color: var(--forte) }
 .secao { width: min(1120px, 100% - 48px); margin-inline: auto; padding-block: clamp(72px, 12vw, 140px) }
 .titulo { font-family: var(--titulo); font-weight: 800; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.05; letter-spacing: -.02em; margin-bottom: 14px }
 .lead { color: var(--suave); max-width: 56ch; font-size: 1.08rem }
 
-/* entra na tela ao rolar (a classe "in" é colocada pelo App.tsx) */
 .reveal {
   opacity: 0; transform: translateY(36px); filter: blur(10px);
   transition: opacity .9s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms), transform .9s cubic-bezier(.2, .7, .2, 1) var(--d, 0ms), filter .9s ease var(--d, 0ms);
 }
 .reveal.in { opacity: 1; transform: none; filter: none }
 
-.rodape { text-align: center; color: var(--suave); font-size: .85rem; padding: 32px 24px 48px; border-top: 1px solid #7fb0ff1a }
+::view-transition-old(root),
+::view-transition-new(root) { animation-duration: .9s; animation-timing-function: cubic-bezier(.45, 0, .55, 1) }
+/* o switch de tema anima por conta própria */
+::view-transition-old(tema-switch) { display: none }
+::view-transition-new(tema-switch) { animation: none }
+html.tema-suave *, html.tema-suave *::before, html.tema-suave *::after {
+  transition: background-color .6s ease, color .6s ease, border-color .6s ease, box-shadow .6s ease, fill .6s ease, stroke .6s ease !important;
+}
+
+@media (max-width: 640px) {
+  html { scroll-padding-top: 116px }
+  .nav { top: 60px }
+}
+@media (max-width: 360px) {
+  .nav a { padding: 6px 9px; font-size: .85rem }
+}
+
+.rodape { text-align: center; color: var(--suave); font-size: .85rem; padding: 32px 24px 48px; border-top: 1px solid color-mix(in srgb, var(--ceu) 10%, transparent) }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important }

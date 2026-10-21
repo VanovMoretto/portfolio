@@ -1,37 +1,80 @@
 .grade { list-style: none; padding: 0; margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px }
 .grade > li { display: flex }
+.grade > .largo { grid-column: 1 / -1 }
 
 .card {
-  flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 20px; border: 1px solid #7fb0ff22;
-  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), #3b6cff30, transparent 65%), linear-gradient(160deg, #0d1d4acc, #030814ee);
+  flex: 1; display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 20px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent);
+  background: radial-gradient(380px circle at var(--mx, 50%) var(--my, 0%), #3b6cff30, transparent 65%), linear-gradient(160deg, var(--card1), var(--card2));
   transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
   transition: transform .2s ease-out, border-color .3s;
 }
-.card:hover { border-color: #7fb0ff66 }
-.destaque { border-color: #7fb0ff55; box-shadow: 0 0 0 1px #2f5bd640, 0 20px 60px -20px #2f5bd688 }
+.card:hover { border-color: color-mix(in srgb, var(--ceu) 40%, transparent) }
 .card h3 { font-family: var(--titulo); font-size: 1.6rem; letter-spacing: -.01em }
 .card p { flex: 1; color: var(--suave) }
 
 .status { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-size: .82rem }
 .status::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c) }
 .producao { --c: #4ade80 }
+.concluido { --c: #2dd4bf }
+.venda { --c: #f472b6 }
 .andamento { --c: #fbbf24 }
 .breve { --c: #7fb0ff }
 .antigo { --c: #9aa9cf }
 
 .tags { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px }
-.tags li { padding: 4px 12px; border-radius: 999px; background: #7fb0ff14; border: 1px solid #7fb0ff26; font-size: .82rem; color: var(--ceu) }
+.tags li { padding: 4px 12px; border-radius: 999px; background: color-mix(in srgb, var(--ceu) 8%, transparent); border: 1px solid color-mix(in srgb, var(--ceu) 15%, transparent); font-size: .82rem; color: var(--ceu) }
 .links { display: flex; gap: 18px; min-height: 1.5em }
-.links a { color: var(--gelo); font-weight: 600; text-decoration: underline; text-decoration-color: #7fb0ff66; text-underline-offset: 5px }
+.links a { color: var(--gelo); font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--ceu) 40%, transparent); text-underline-offset: 5px }
 .links a:hover { text-decoration-color: var(--ceu) }
 
 @media (max-width: 760px) { .grade { grid-template-columns: minmax(0, 1fr) } }
 
-.print { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid #7fb0ff22 }
+.print { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent) }
 .card .gancho { flex: none; color: var(--gelo); font-family: var(--titulo); font-size: 1.1rem; font-weight: 600; line-height: 1.3 }
 
-/* tecnologia: neutra em repouso (com um ponto da cor dela); acende na cor própria no hover */
 .tags li { display: inline-flex; align-items: center; gap: 7px; color: var(--gelo); cursor: default; transition: transform .2s, border-color .2s, background .2s, box-shadow .2s }
 .tags li::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--c); opacity: .85; transition: box-shadow .2s, opacity .2s }
 .tags li:hover { transform: translateY(-3px); border-color: var(--c); background: color-mix(in srgb, var(--c) 18%, transparent); box-shadow: 0 6px 20px -6px var(--c) }
 .tags li:hover::before { opacity: 1; box-shadow: 0 0 10px var(--c) }
+
+.case {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 36px; align-items: center; padding: 36px;
+  border-color: color-mix(in srgb, var(--ceu) 33%, transparent); box-shadow: 0 0 0 1px #2f5bd640, 0 20px 60px -20px #2f5bd688;
+}
+.case h3 { font-size: 2.1rem }
+.caseTexto { display: flex; flex-direction: column; gap: 12px }
+.casePrint { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent) }
+
+.etapas { list-style: none; padding: 0; margin: 8px 0 6px 5px; border-left: 1px solid color-mix(in srgb, var(--ceu) 20%, transparent) }
+.etapas li { position: relative; padding: 0 0 18px 22px }
+.etapas li::before { content: ''; position: absolute; left: -5px; top: 7px; width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 10px var(--c) }
+.etapas h4 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; font-family: var(--titulo); font-size: 1.1rem; color: var(--forte) }
+.etapas h4 small { font-family: var(--texto); font-size: .75rem; font-weight: 600; color: var(--ceu) }
+.etapas h4 span { font-family: var(--texto); font-size: .75rem; font-weight: 500; color: var(--suave) }
+.etapas p { margin: 2px 0 6px; font-size: .95rem }
+.etapas .links { gap: 14px; font-size: .9rem; min-height: 0 }
+
+@media (max-width: 900px) {
+  .case { grid-template-columns: minmax(0, 1fr); padding: 28px }
+  .casePrint { order: -1 }
+}
+
+.outrosTitulo { font-family: var(--titulo); font-size: 1.4rem; margin: 64px 0 18px }
+.outros { list-style: none; padding: 0; display: grid; gap: 14px }
+.linha {
+  display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; gap: 22px; align-items: center; padding: 18px;
+  border-radius: 16px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent); background: linear-gradient(160deg, var(--card1), var(--card2));
+  transition: border-color .3s;
+}
+.linha:hover { border-color: color-mix(in srgb, var(--ceu) 33%, transparent) }
+.linha > div:not(.links) { display: grid; gap: 6px }
+.linha h4 { font-family: var(--titulo); font-size: 1.2rem }
+.linha p { color: var(--suave); font-size: .95rem }
+.linha .gancho { color: var(--gelo); font-weight: 600 }
+.linha > .links { flex-direction: column; gap: 8px; white-space: nowrap }
+.mini { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent) }
+
+@media (max-width: 760px) {
+  .linha { grid-template-columns: minmax(0, 1fr) }
+  .linha > .links { flex-direction: row; gap: 18px }
+}

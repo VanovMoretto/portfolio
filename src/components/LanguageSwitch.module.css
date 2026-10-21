@@ -1,0 +1,22 @@
+.caixa { position: fixed; top: 18px; right: 18px; z-index: 11; display: grid; justify-items: end }
+
+.caixa button {
+  display: grid; place-items: center; padding: 4px; border: 0; background: none; cursor: pointer;
+  border-radius: 6px; transition: transform .25s cubic-bezier(.2, .7, .2, 1);
+}
+.caixa button:hover { transform: translateY(-2px) }
+
+.bandeira {
+  display: block; width: 32px; height: auto; aspect-ratio: 7 / 5; border-radius: 4px;
+  filter: drop-shadow(0 3px 4px #0007) drop-shadow(0 8px 12px #0004);
+  transition: filter .25s;
+}
+.caixa button:hover .bandeira { filter: drop-shadow(0 5px 6px #0007) drop-shadow(0 12px 16px #0004) }
+
+.lista { display: grid; gap: 6px; margin: 6px 0 0; padding: 0; list-style: none }
+.lista li { animation: cair .28s cubic-bezier(.2, .7, .2, 1) both; animation-delay: calc(var(--i) * 60ms) }
+@keyframes cair { from { opacity: 0; translate: 0 -10px } }
+
+@media (max-width: 640px) {
+  .caixa { top: 14px; right: 14px }
+}

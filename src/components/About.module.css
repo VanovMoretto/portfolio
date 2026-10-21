@@ -1,4 +1,4 @@
-.lista { list-style: none; padding: 0; margin: 48px 0 0 6px; border-left: 1px solid #7fb0ff33 }
+.lista { list-style: none; padding: 0; margin: 48px 0 0 6px; border-left: 1px solid color-mix(in srgb, var(--ceu) 20%, transparent) }
 .item { position: relative; padding: 2px 0 36px 32px }
 .item::before { content: ''; position: absolute; left: -6px; top: 9px; width: 11px; height: 11px; border-radius: 50%; background: var(--ceu); box-shadow: 0 0 16px var(--ceu) }
 .item h3 { font-family: var(--titulo); font-size: 1.35rem; margin-bottom: 6px }

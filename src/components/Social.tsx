@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react'
+import { useTranslation } from 'react-i18next'
 import { perfil } from '../data'
 import s from './Social.module.css'
 
@@ -21,18 +22,18 @@ const Email = () => (
   </svg>
 )
 
-// LinkedIn e e-mail só aparecem se estiverem preenchidos em src/data.ts
 export default function Social() {
+  const { t } = useTranslation()
   const links = [
     { nome: 'GitHub', href: perfil.github, icone: <Github /> },
     perfil.linkedin && { nome: 'LinkedIn', href: perfil.linkedin, icone: <Linkedin /> },
-    perfil.email && { nome: 'E-mail', href: `mailto:${perfil.email}`, icone: <Email /> },
-  ].filter(Boolean) as { nome: string; href: string; icone: ReactElement }[]
+    perfil.email && { nome: t('social.email'), href: `mailto:${perfil.email}`, icone: <Email />, email: true },
+  ].filter(Boolean) as { nome: string; href: string; icone: ReactElement; email?: boolean }[]
 
   return (
     <div className={s.social}>
       {links.map((l) => (
-        <a key={l.nome} href={l.href} aria-label={l.nome} title={l.nome} target={l.nome === 'E-mail' ? undefined : '_blank'} rel="noreferrer">
+        <a key={l.nome} href={l.href} aria-label={l.nome} title={l.nome} target={l.email ? undefined : '_blank'} rel="noreferrer">
           {l.icone}
         </a>
       ))}

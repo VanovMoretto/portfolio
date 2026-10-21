@@ -1,0 +1,53 @@
+.switch {
+  --curso: 36px;
+  position: fixed; top: 14px; left: 16px; z-index: 11;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; width: 80px; height: 44px; padding: 4px;
+  border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent); border-radius: 999px;
+  background: var(--vidro); backdrop-filter: blur(14px); cursor: pointer;
+  transition: background-color .6s, border-color .6s;
+  /* fora da view transition, para a animação da bolinha aparecer */
+  view-transition-name: tema-switch;
+}
+.switch:hover { border-color: color-mix(in srgb, var(--ceu) 35%, transparent) }
+
+.bolinha {
+  position: absolute; top: 4px; left: 4px; width: 34px; height: 34px; border-radius: 50%;
+  background: color-mix(in srgb, var(--ceu) 16%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ceu) 22%, transparent), 0 2px 8px -2px #0006;
+  transition: background-color .6s, box-shadow .6s;
+}
+.claro .bolinha { translate: var(--curso) 0 }
+
+.animado .bolinha { animation: paraEscuro .6s cubic-bezier(.65, 0, .35, 1) both }
+.animado.claro .bolinha { animation-name: paraClaro }
+@keyframes paraClaro {
+  0% { translate: 0 0; scale: 1 }
+  45% { scale: 1.35 .88 }
+  100% { translate: var(--curso) 0; scale: 1 }
+}
+@keyframes paraEscuro {
+  0% { translate: var(--curso) 0; scale: 1 }
+  45% { scale: 1.35 .88 }
+  100% { translate: 0 0; scale: 1 }
+}
+
+.icone {
+  position: relative; justify-self: center; width: 18px; height: 18px;
+  fill: none; stroke: var(--suave); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round;
+  opacity: .55; transition: stroke .5s .15s, opacity .5s .15s, filter .5s .15s;
+}
+
+.aceso { opacity: 1 }
+.lua.aceso {
+  stroke: #5b86ff;
+  filter: drop-shadow(0 0 1.5px #3b6cff) drop-shadow(0 0 5px #1d4ed8) drop-shadow(0 0 10px #1e3a8a);
+}
+.sol.aceso {
+  stroke: #ffa21f;
+  filter: drop-shadow(0 0 1.5px #ffb020) drop-shadow(0 0 5px #ff8a00) drop-shadow(0 0 10px #f97316);
+}
+
+@media (max-width: 640px) {
+  .switch { --curso: 32px; top: 10px; left: 12px; width: 72px; height: 40px }
+  .bolinha { width: 30px; height: 30px }
+}
