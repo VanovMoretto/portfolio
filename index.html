@@ -1,14 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/portfolio/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanov Moretto - Portfolio</title>
-    <script type="module" crossorigin src="/portfolio/assets/index-BzPfzXq0.js"></script>
-    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-ZgLSCSLQ.css">
+    <meta name="description" content="Vanov Moretto, desenvolvedor front-end (React e TypeScript) rumo ao full-stack." />
+    <meta name="theme-color" content="#030814" />
+    <title>Vanov Moretto | Desenvolvedor Front-end</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:url" content="https://vanovmoretto.github.io/portfolio/" />
+    <meta property="og:title" content="Vanov Moretto | Desenvolvedor Front-end" />
+    <meta property="og:description" content="Interfaces em React e TypeScript. Um guia digital vendido a hotel, que virou produto white-label." />
+    <meta property="og:image" content="https://vanovmoretto.github.io/portfolio/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/portfolio/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- aplica o tema salvo antes do primeiro render -->
+    <script>
+      try {
+        if (localStorage.getItem('tema') === 'light') document.documentElement.dataset.theme = 'light'
+      } catch {}
+    </script>
+    <script type="module" crossorigin src="/portfolio/assets/index-I9IpSmD-.js"></script>
+    <link rel="stylesheet" crossorigin href="/portfolio/assets/index-BAb9pS-7.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"></div>
   </body>
 </html>
