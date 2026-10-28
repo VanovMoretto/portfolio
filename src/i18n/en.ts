@@ -110,7 +110,7 @@ const en: Mensagens = {
       leadManager: {
         nome: 'Lead Manager',
         gancho: 'Event sales left the spreadsheet behind and got numbers to show the board.',
-        resumo: "Sales CRM for the hotel's events team, used every day by the team and the general manager. Proposal pipeline, client history matched by phone, email or company ID, monthly revenue in 3 layers, Excel, CSV and PDF exports and privacy opt-out.",
+        resumo: "Sales CRM for the hotel's events team, used every day by the team and the general manager. Proposal pipeline, client history matched by phone, email or company ID, monthly revenue in 3 layers, Excel, CSV and PDF exports and privacy opt-out. The live demo uses sample data and opens with one click.",
       },
       restmenu: {
         nome: 'Irius Gastronomia',

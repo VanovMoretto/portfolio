@@ -110,7 +110,7 @@ const es: Mensagens = {
       leadManager: {
         nome: 'Lead Manager',
         gancho: 'El área comercial de eventos dejó la planilla y ganó números para mostrar a la dirección.',
-        resumo: 'CRM del área de eventos del hotel, usado a diario por el equipo y el gerente general. Embudo de propuestas, historial del cliente por teléfono, e-mail o CNPJ, ingresos mensuales en 3 capas, exportación a Excel, CSV y PDF y opt-out de privacidad.',
+        resumo: 'CRM del área de eventos del hotel, usado a diario por el equipo y el gerente general. Embudo de propuestas, historial del cliente por teléfono, e-mail o CNPJ, ingresos mensuales en 3 capas, exportación a Excel, CSV y PDF y opt-out de privacidad. La demo en línea usa datos ficticios y se abre con 1 clic.',
       },
       restmenu: {
         nome: 'Irius Gastronomia',

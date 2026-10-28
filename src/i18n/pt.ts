@@ -109,7 +109,7 @@ const pt = {
       leadManager: {
         nome: 'Lead Manager',
         gancho: 'O comercial de eventos saiu da planilha e ganhou números para mostrar à diretoria.',
-        resumo: 'CRM do setor de eventos do hotel, usado todo dia pela equipe e pelo gerente geral. Funil de propostas, histórico do cliente por telefone, e-mail ou CNPJ, receita mensal em 3 camadas, exportação para Excel, CSV e PDF e opt-out de LGPD.',
+        resumo: 'CRM do setor de eventos do hotel, usado todo dia pela equipe e pelo gerente geral. Funil de propostas, histórico do cliente por telefone, e-mail ou CNPJ, receita mensal em 3 camadas, exportação para Excel, CSV e PDF e opt-out de LGPD. A demo online usa dados fictícios e entra com 1 clique.',
       },
       restmenu: {
         nome: 'Irius Gastronomia',

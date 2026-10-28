@@ -89,7 +89,7 @@ export const projetos: Projeto[] = [
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL', 'Recharts'],
     status: 'uso',
     repo: gh + 'lead-manager',
-    restrito: true,
+    demo: 'https://lead-manager-demo.vercel.app/login',
     imagem: 'projetos/lead-manager.webp',
   },
   {
