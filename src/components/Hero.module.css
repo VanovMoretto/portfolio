@@ -5,9 +5,28 @@
 .texto > :nth-child(3) { animation-delay: .24s }
 .texto > :nth-child(4) { animation-delay: .36s }
 .texto > :nth-child(5) { animation-delay: .48s }
+.texto > :nth-child(6) { animation-delay: .6s }
 @keyframes entrar { from { opacity: 0; transform: translateY(28px); filter: blur(8px) } }
 
-.selo { display: inline-flex; padding: 6px 14px; margin-bottom: 22px; border: 1px solid color-mix(in srgb, var(--ceu) 20%, transparent); border-radius: 999px; color: var(--ceu); font-size: .9rem }
+.selo {
+  display: inline-flex; align-items: center; gap: 10px; padding: 6px 14px 6px 12px; margin-bottom: 22px;
+  border: 1px solid color-mix(in srgb, #4ade80 30%, transparent); border-radius: 999px;
+  background: color-mix(in srgb, #4ade80 8%, transparent); color: var(--gelo); font-size: .9rem; font-weight: 500;
+}
+.pulso { position: relative; width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 10px #4ade80 }
+.pulso::after { content: ''; position: absolute; inset: 0; border-radius: inherit; background: #4ade80; animation: pulsar 2s ease-out infinite }
+@keyframes pulsar { to { transform: scale(3); opacity: 0 } }
+
+.numeros {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 15ch)); gap: 14px clamp(16px, 4vw, 36px); margin-top: 40px; padding-top: 24px;
+  border-top: 1px solid color-mix(in srgb, var(--ceu) 14%, transparent);
+}
+.numeros div { display: grid; align-content: start; gap: 4px }
+.numeros dt {
+  font-family: var(--titulo); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1; letter-spacing: -.02em;
+  background: linear-gradient(120deg, var(--forte), var(--ceu)); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.numeros dd { margin: 0; color: var(--suave); font-size: .86rem; line-height: 1.35 }
 .nome {
   font-family: var(--titulo); font-weight: 800; font-size: clamp(3rem, 9vw, 6.6rem); line-height: .95; letter-spacing: -.035em;
   background: linear-gradient(100deg, var(--forte) 20%, var(--ceu) 60%, #3f6dff); -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -22,7 +41,7 @@
 .secundario:hover { background: color-mix(in srgb, var(--ceu) 10%, transparent) }
 
 .cena { display: grid; justify-items: center }
-.orbita { position: relative; width: 520px; height: 520px }
+.orbita { position: relative; width: 580px; height: 580px }
 .nucleo {
   position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 150px; height: 150px; padding: 16px;
   display: grid; align-content: center; justify-items: center; gap: 4px; text-align: center; border-radius: 50%;
@@ -54,10 +73,10 @@
 
 /* zoom em vez de scale: reduz também o espaço ocupado */
 @media (max-width: 1180px) { .orbita { zoom: .8 } }
-@media (max-width: 960px) { .hero { grid-template-columns: minmax(0, 1fr); padding-top: 110px } .orbita { zoom: .64 } }
-@media (max-width: 400px) { .orbita { zoom: .6 } }
+@media (max-width: 960px) { .hero { grid-template-columns: minmax(0, 1fr); padding-top: 110px } .orbita { zoom: .6 } }
+@media (max-width: 400px) { .orbita { zoom: .55 } .numeros dd { font-size: .78rem } }
 @media (max-width: 640px) { .hero:global(.secao) { padding-top: 136px } }
-@media (max-width: 360px) { .orbita { zoom: .52 } .legenda { flex-wrap: wrap; justify-content: center } }
+@media (max-width: 360px) { .orbita { zoom: .48 } .legenda { flex-wrap: wrap; justify-content: center } }
 
 .chip { outline: none; transition: background .25s, border-color .25s, box-shadow .25s, color .25s, scale .25s, opacity .25s }
 .chip:hover, .chip:focus-visible { color: var(--forte); scale: 1.14; border-color: var(--c); background: color-mix(in srgb, var(--c) 30%, var(--noite)); box-shadow: 0 0 36px var(--c), 0 0 8px var(--c) }

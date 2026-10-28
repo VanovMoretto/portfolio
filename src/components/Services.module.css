@@ -1,0 +1,35 @@
+.grade { list-style: none; padding: 0; margin-top: 48px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px }
+
+.item {
+  position: relative; display: grid; gap: 10px; align-content: start; padding: 28px; overflow: hidden;
+  border-radius: 20px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent);
+  background: linear-gradient(160deg, var(--card1), var(--card2));
+}
+.item::after {
+  content: ''; position: absolute; inset: auto -30% -60% auto; width: 70%; aspect-ratio: 1; pointer-events: none;
+  background: radial-gradient(circle, #3b6cff2e, transparent 65%); opacity: 0; transition: opacity .4s;
+}
+.item:hover { border-color: color-mix(in srgb, var(--ceu) 40%, transparent) }
+.item:hover::after { opacity: 1 }
+.item h3 { font-family: var(--titulo); font-size: 1.3rem; letter-spacing: -.01em }
+.item p { color: var(--suave) }
+
+.icone {
+  width: 48px; height: 48px; display: grid; place-items: center; margin-bottom: 4px; border-radius: 14px; color: var(--ceu);
+  background: color-mix(in srgb, var(--ceu) 10%, transparent); border: 1px solid color-mix(in srgb, var(--ceu) 22%, transparent);
+  transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s;
+}
+.icone svg { width: 24px; height: 24px }
+.item:hover .icone { transform: translateY(-3px) rotate(-4deg); box-shadow: 0 10px 26px -10px var(--ceu) }
+
+.processoTitulo { font-family: var(--titulo); font-size: 1.4rem; margin: 64px 0 22px }
+.processo { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
+.processo li { padding: 22px 0 0; border-top: 1px solid color-mix(in srgb, var(--ceu) 22%, transparent) }
+.passo { display: block; font-family: var(--titulo); font-weight: 800; font-size: .95rem; color: var(--ceu); margin-bottom: 8px; letter-spacing: .04em }
+.processo h4 { font-family: var(--titulo); font-size: 1.15rem; margin-bottom: 4px; color: var(--forte) }
+.processo p { color: var(--suave); font-size: .95rem }
+
+@media (max-width: 760px) {
+  .grade, .processo { grid-template-columns: minmax(0, 1fr) }
+  .item { padding: 24px }
+}

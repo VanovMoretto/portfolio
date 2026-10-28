@@ -12,6 +12,15 @@ export default function Bandeira({ idioma, className }: { idioma: Idioma; classN
     )
   }
 
+  if (idioma === 'es') {
+    return (
+      <svg className={className} viewBox="0 0 28 20" aria-hidden="true">
+        <rect width="28" height="20" fill="#c60b1e" />
+        <rect y="5" width="28" height="10" fill="#ffc400" />
+      </svg>
+    )
+  }
+
   const listra = 20 / 13
   return (
     <svg className={className} viewBox="0 0 28 20" aria-hidden="true">

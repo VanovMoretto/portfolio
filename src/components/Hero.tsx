@@ -1,6 +1,6 @@
 import { useState, type CSSProperties } from 'react'
 import { useTranslation } from 'react-i18next'
-import { back, front, perfil, type Tech } from '../data'
+import { back, front, numeros, perfil, type Tech } from '../data'
 import Social from './Social'
 import s from './Hero.module.css'
 
@@ -49,14 +49,26 @@ export default function Hero() {
   return (
     <section className={`secao ${s.hero}`}>
       <div className={s.texto}>
-        <p className={s.selo}>{t('hero.selo')}</p>
+        <p className={s.selo}>
+          <i className={s.pulso} aria-hidden="true" />
+          {t('hero.selo')}
+        </p>
         <h1 className={s.nome}>{perfil.nome}</h1>
         <p className={s.cargo}>{t('hero.cargo')}</p>
         <p className="lead">{t('hero.subtitulo')}</p>
         <div className={s.acoes}>
-          <a className={s.primario} href="#projetos">{t('hero.verProjetos')}</a>
+          <a className={s.primario} href="#contato">{t('hero.contratar')}</a>
+          <a className={s.secundario} href="#projetos">{t('hero.verProjetos')}</a>
           <Social />
         </div>
+        <dl className={s.numeros}>
+          {numeros.map((n) => (
+            <div key={n.id}>
+              <dt>{n.valor}</dt>
+              <dd>{t(`hero.numeros.${n.id}`)}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
 
       <div className={s.cena}>
@@ -65,8 +77,8 @@ export default function Hero() {
             <strong>{ativo ? ativo.nome : t('hero.nucleo')}</strong>
             <small>{ativo ? (usos[ativo.nome] ?? []).join(', ') : t('hero.dica')}</small>
           </div>
-          <Anel itens={front} raio={125} dur={48} onAtivo={setAtivo} />
-          <Anel itens={back} raio={210} dur={70} inverso tracejado onAtivo={setAtivo} />
+          <Anel itens={front} raio={142} dur={56} onAtivo={setAtivo} />
+          <Anel itens={back} raio={232} dur={76} inverso tracejado onAtivo={setAtivo} />
         </div>
         <p className={s.legenda}>
           <i className={s.ponto} /> {t('hero.legendaFront')}

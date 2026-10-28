@@ -22,12 +22,13 @@ const Email = () => (
   </svg>
 )
 
-export default function Social() {
+// semEmail: quando a seção já tem um botão de e-mail próprio
+export default function Social({ semEmail = false }: { semEmail?: boolean }) {
   const { t } = useTranslation()
   const links = [
     { nome: 'GitHub', href: perfil.github, icone: <Github /> },
     perfil.linkedin && { nome: 'LinkedIn', href: perfil.linkedin, icone: <Linkedin /> },
-    perfil.email && { nome: t('social.email'), href: `mailto:${perfil.email}`, icone: <Email />, email: true },
+    !semEmail && perfil.email && { nome: t('social.email'), href: `mailto:${perfil.email}`, icone: <Email />, email: true },
   ].filter(Boolean) as { nome: string; href: string; icone: ReactElement; email?: boolean }[]
 
   return (

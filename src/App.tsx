@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
+import Services from './components/Services'
 import About from './components/About'
 import Contact from './components/Contact'
 import ThemeSwitch from './components/ThemeSwitch'
@@ -51,6 +52,7 @@ export default function App() {
       <nav className="nav" aria-label={t('nav.rotulo')}>
         <a className="logo" href="#topo">VM</a>
         <a href="#projetos">{t('nav.projetos')}</a>
+        <a href="#servicos">{t('nav.servicos')}</a>
         <a href="#sobre">{t('nav.sobre')}</a>
         <a href="#contato">{t('nav.contato')}</a>
       </nav>
@@ -58,6 +60,7 @@ export default function App() {
       <main id="topo">
         <Hero />
         <Projects />
+        <Services />
         <About />
         <Contact />
       </main>
