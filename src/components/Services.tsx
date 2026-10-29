@@ -46,7 +46,6 @@ export default function Services() {
       <ol className={s.processo}>
         {t('servicos.processo', { returnObjects: true }).map((x, i) => (
           <li key={i} className="reveal" style={{ '--d': `${i * 120}ms` } as CSSProperties}>
-            <span className={s.passo}>0{i + 1}</span>
             <h4>{x.t}</h4>
             <p>{x.d}</p>
           </li>

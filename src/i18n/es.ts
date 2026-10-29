@@ -12,7 +12,7 @@ const es: Mensagens = {
   hero: {
     selo: 'Disponible para proyectos freelance',
     cargo: 'Desarrollador Full-Stack React',
-    subtitulo: 'Web apps para hoteles, restaurantes y pequeñas empresas, de la base de datos a la interfaz. Software que ya está en uso, no solo en GitHub.',
+    subtitulo: 'Desarrollo web apps para hoteles, restaurantes y pequeñas empresas. Algunas ya forman parte del día a día de un hotel.',
     contratar: 'Hablemos',
     verProjetos: 'Ver proyectos',
     numeros: {
@@ -43,7 +43,7 @@ const es: Mensagens = {
 
   servicos: {
     titulo: 'Lo que hago por ti',
-    lead: 'Del primer boceto al sistema en línea. Hablas directamente con quien escribe el código.',
+    lead: 'Me encargo de todo el proyecto, y hablas directamente conmigo durante todo el proceso.',
     itens: [
       {
         t: 'Web apps y paneles',
@@ -72,7 +72,7 @@ const es: Mensagens = {
 
   projetos: {
     titulo: 'Proyectos',
-    lead: 'Dos ya funcionan a diario en un hotel real y el tercero está en la recta final. Uno de ellos se vendió y se convirtió en producto.',
+    lead: 'Dos ya funcionan a diario en un hotel y el tercero está en la recta final. Uno de ellos se vendió y se convirtió en producto.',
     outros: 'Otros proyectos',
     verOnline: 'Ver en línea',
     queroNoHotel: 'Lo quiero en mi hotel',
@@ -95,7 +95,7 @@ const es: Mensagens = {
       astrolabio: {
         nome: 'Astrolábio',
         gancho: 'El astrolabio guiaba a los navegantes por el cielo. Este guía al huésped por el hotel.',
-        resumo: 'Empezó como una guía digital vendida a un hotel y se convirtió en producto. Cada versión resolvió el límite de la anterior.',
+        resumo: 'Empezó como una guía digital vendida a un hotel. Hoy tiene tres versiones, una de ellas lista para venderse a otros hoteles.',
       },
       astrolabioV1: {
         nome: 'Astrolábio',
@@ -116,7 +116,7 @@ const es: Mensagens = {
       },
       restmenu: {
         nome: 'Irius Gastronomia',
-        gancho: 'Del menú en el celular al pedido en la cocina, en tiempo real.',
+        gancho: 'El pedido que el huésped hace en el celular aparece al instante en la cocina.',
         resumo: 'Menú digital del restaurante del hotel en 3 idiomas, con pedidos de room service, pago con PIX o tarjeta y un panel en vivo para recepción y cocina, con alerta sonora y ticket térmico. El dueño edita platos y precios sin tocar código.',
       },
       painterRobot: {
@@ -134,22 +134,22 @@ const es: Mensagens = {
 
   sobre: {
     titulo: 'Conozco la operación por dentro',
-    lead: 'Trabajo en hotelería desde 2019. Conozco al huésped perdido, el menú que nadie entiende y el cliente que se pierde en una planilla. Convierto eso en software.',
+    lead: 'Trabajo en hotelería desde 2019 y veo de cerca los problemas del día a día de un hotel. Varios de mis proyectos nacieron así.',
     itens: [
       {
         t: 'Ya vendí software',
         d: 'Una guía digital que hice fue comprada por el Swan Novo Hamburgo y está en uso. De ella nacieron una versión en TypeScript y un producto white-label, ahora en aprobación para tres hoteles más de la cadena.',
       },
       {
-        t: 'De la base de datos a la interfaz',
+        t: 'Me encargo de todo el sistema',
         d: 'En Lead Manager e Irius me encargo de todo: base de datos Postgres en Supabase con Row Level Security, login, archivos, datos en tiempo real y la interfaz en React y TypeScript.',
       },
       {
-        t: 'Clientes reales, plazos reales',
-        d: 'Soy coordinador de eventos. Plazos cortos y clientes exigentes son parte de mi rutina, y llevo esa calma y esa escucha a cada proyecto.',
+        t: 'Acostumbrado a plazos cortos',
+        d: 'Soy coordinador de eventos y trato todos los días con plazos ajustados y clientes exigentes.',
       },
       {
-        t: 'Hablo el idioma de tus clientes',
+        t: 'Atiendo en tres idiomas',
         d: 'Portugués nativo, inglés y español fluidos. Pasé 3 años atendiendo a huéspedes de todo el mundo en los barcos de Norwegian Cruise Line.',
       },
     ],

@@ -12,7 +12,7 @@ const en: Mensagens = {
   hero: {
     selo: 'Available for freelance projects',
     cargo: 'Full-Stack React Developer',
-    subtitulo: 'Web apps for hotels, restaurants and small businesses, from the database to the interface. Software that is already in use, not just sitting on GitHub.',
+    subtitulo: "I build web apps for hotels, restaurants and small businesses. Some of them are already part of a hotel's daily routine.",
     contratar: "Let's talk",
     verProjetos: 'See projects',
     numeros: {
@@ -43,7 +43,7 @@ const en: Mensagens = {
 
   servicos: {
     titulo: 'What I can build for you',
-    lead: 'From the first sketch to a live product. You talk directly to the person writing the code.',
+    lead: 'I take care of the whole project, and you talk directly to me the entire time.',
     itens: [
       {
         t: 'Web apps and dashboards',
@@ -72,7 +72,7 @@ const en: Mensagens = {
 
   projetos: {
     titulo: 'Projects',
-    lead: 'Two of them run every day at a real hotel and the third is in its final stage. One was sold and became a product.',
+    lead: 'Two of them run every day at a hotel and the third is in its final stage. One was sold and became a product.',
     outros: 'Other projects',
     verOnline: 'Live demo',
     queroNoHotel: 'I want it for my hotel',
@@ -95,7 +95,7 @@ const en: Mensagens = {
       astrolabio: {
         nome: 'Astrolábio',
         gancho: 'The astrolabe guided sailors by the stars. This one guides guests through the hotel.',
-        resumo: 'It started as a digital guide sold to a hotel and became a product. Each version solved the limits of the one before.',
+        resumo: 'It started as a digital guide sold to a hotel. It now has three versions, one of them ready to be sold to other hotels.',
       },
       astrolabioV1: {
         nome: 'Astrolábio',
@@ -116,7 +116,7 @@ const en: Mensagens = {
       },
       restmenu: {
         nome: 'Irius Gastronomia',
-        gancho: 'From the menu on your phone to the order in the kitchen, in real time.',
+        gancho: "An order placed on the guest's phone shows up in the kitchen right away.",
         resumo: "Digital menu for the hotel's restaurant in 3 languages, with room-service ordering, PIX or card payment and a live board for front desk and kitchen with sound alerts and thermal receipts. The owner edits dishes and prices without touching code.",
       },
       painterRobot: {
@@ -134,22 +134,22 @@ const en: Mensagens = {
 
   sobre: {
     titulo: 'I know the operation from the inside',
-    lead: "I've worked in hospitality since 2019. I know the lost hotel guest, the menu nobody understands and the client who vanishes inside a spreadsheet. I turn that into software.",
+    lead: "I've worked in hospitality since 2019, so I see a hotel's day-to-day problems up close. Several of my projects started that way.",
     itens: [
       {
         t: "I've already sold software",
         d: 'A digital guide I built was bought by Swan Novo Hamburgo and is live. It led to a TypeScript version and a white-label product, now in approval for three more hotels in the chain.',
       },
       {
-        t: 'From the database to the interface',
+        t: 'I handle the whole system',
         d: 'In Lead Manager and Irius I handle everything: a Postgres database on Supabase with Row Level Security, auth, file storage, real-time data and the React and TypeScript interface.',
       },
       {
-        t: 'Real clients, real deadlines',
-        d: "I'm an events coordinator. Tight deadlines and demanding clients are part of my routine, and I bring that calm and that habit of listening to every project.",
+        t: 'Used to tight deadlines',
+        d: "I'm an events coordinator and deal with tight deadlines and demanding clients every day.",
       },
       {
-        t: "I speak your clients' language",
+        t: 'I work in three languages',
         d: 'Native Portuguese, fluent English and Spanish. I spent 3 years serving guests from all over the world on Norwegian Cruise Line ships.',
       },
     ],

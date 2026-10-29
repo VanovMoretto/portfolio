@@ -10,7 +10,7 @@ const pt = {
   hero: {
     selo: 'Disponível para projetos freelance',
     cargo: 'Desenvolvedor Full-Stack React',
-    subtitulo: 'Web apps para hotéis, restaurantes e pequenas empresas, do banco de dados à interface. Software que já está em uso, não só no GitHub.',
+    subtitulo: 'Desenvolvo web apps para hotéis, restaurantes e pequenas empresas. Alguns deles já fazem parte do dia a dia de um hotel.',
     contratar: 'Vamos conversar',
     verProjetos: 'Ver projetos',
     numeros: {
@@ -41,7 +41,7 @@ const pt = {
 
   servicos: {
     titulo: 'O que eu faço por você',
-    lead: 'Do primeiro rascunho ao sistema no ar. Você fala com quem escreve o código, sem intermediários.',
+    lead: 'Cuido do projeto inteiro, e você fala direto comigo durante todo o processo.',
     itens: [
       {
         t: 'Web apps e painéis',
@@ -70,7 +70,7 @@ const pt = {
 
   projetos: {
     titulo: 'Projetos',
-    lead: 'Dois já rodam no dia a dia de um hotel de verdade e o terceiro está na reta final. Um deles foi vendido e virou produto.',
+    lead: 'Dois já rodam no dia a dia de um hotel e o terceiro está na reta final. Um deles foi vendido e virou produto.',
     outros: 'Outros projetos',
     verOnline: 'Ver online',
     queroNoHotel: 'Quero no meu hotel',
@@ -94,7 +94,7 @@ const pt = {
       astrolabio: {
         nome: 'Astrolábio',
         gancho: 'O astrolábio guiava navegantes pelo céu. Este guia o hóspede pelo hotel.',
-        resumo: 'Começou como um guia digital vendido a um hotel e virou produto. Cada versão resolveu o limite da anterior.',
+        resumo: 'Começou como um guia digital vendido a um hotel. Hoje tem três versões, uma delas pronta para ser vendida a outros hotéis.',
       },
       astrolabioV1: {
         nome: 'Astrolábio',
@@ -115,7 +115,7 @@ const pt = {
       },
       restmenu: {
         nome: 'Irius Gastronomia',
-        gancho: 'Do cardápio no celular ao pedido na cozinha, em tempo real.',
+        gancho: 'O pedido feito no celular do hóspede aparece na hora na cozinha.',
         resumo: 'Cardápio digital do restaurante do hotel em 3 idiomas, com pedidos de room service, pagamento por PIX ou cartão e painel ao vivo para recepção e cozinha, com alerta sonoro e cupom térmico. O dono edita pratos e preços sem mexer em código.',
       },
       painterRobot: {
@@ -133,22 +133,22 @@ const pt = {
 
   sobre: {
     titulo: 'Conheço a operação por dentro',
-    lead: 'Trabalho com hotelaria desde 2019. Sei como é o hóspede perdido, o cardápio que ninguém entende e o cliente que some dentro de uma planilha. Eu transformo isso em software.',
+    lead: 'Trabalho com hotelaria desde 2019 e vejo de perto os problemas que um hotel enfrenta no dia a dia. Vários dos meus projetos começaram assim.',
     itens: [
       {
         t: 'Já vendi software',
         d: 'Um guia digital que fiz foi comprado pelo Swan Novo Hamburgo e está no ar. Dele nasceu uma versão em TypeScript e um produto white-label, que agora está em aprovação para mais 3 hotéis da rede.',
       },
       {
-        t: 'Do banco à interface',
+        t: 'Cuido do sistema inteiro',
         d: 'No Lead Manager e no Irius, cuido de tudo: banco Postgres no Supabase com Row Level Security, login, arquivos, dados em tempo real e a interface em React e TypeScript.',
       },
       {
-        t: 'Cliente de verdade, prazo de verdade',
-        d: 'Sou coordenador de eventos. Prazo curto e cliente exigente fazem parte da minha rotina, e levo essa calma e essa escuta para cada projeto.',
+        t: 'Acostumado com prazo curto',
+        d: 'Sou coordenador de eventos e lido todo dia com prazos apertados e clientes exigentes.',
       },
       {
-        t: 'Falo a língua do seu cliente',
+        t: 'Atendo em três idiomas',
         d: 'Português nativo, inglês e espanhol fluentes. Foram 3 anos atendendo hóspedes do mundo todo em navios da Norwegian Cruise Line.',
       },
     ],

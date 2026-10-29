@@ -25,7 +25,6 @@
 .processoTitulo { font-family: var(--titulo); font-size: 1.4rem; margin: 64px 0 22px }
 .processo { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px }
 .processo li { padding: 22px 0 0; border-top: 1px solid color-mix(in srgb, var(--ceu) 22%, transparent) }
-.passo { display: block; font-family: var(--titulo); font-weight: 800; font-size: .95rem; color: var(--ceu); margin-bottom: 8px; letter-spacing: .04em }
 .processo h4 { font-family: var(--titulo); font-size: 1.15rem; margin-bottom: 4px; color: var(--forte) }
 .processo p { color: var(--suave); font-size: .95rem }
 
