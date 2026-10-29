@@ -4,9 +4,11 @@
   background: linear-gradient(120deg, var(--forte), var(--ceu)); -webkit-background-clip: text; background-clip: text; color: transparent;
 }
 .links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; margin-top: 12px }
-.email {
+.botao {
   display: grid; justify-items: start; padding: 10px 24px; border-radius: 14px; color: #fff; font-weight: 600; text-decoration: none; line-height: 1.3;
   background: linear-gradient(135deg, var(--azul), #1a3fb0); box-shadow: 0 8px 30px #2f5bd655; transition: transform .2s, box-shadow .2s;
 }
-.email small { font-weight: 400; font-size: .8rem; opacity: .8 }
-.email:hover { transform: translateY(-2px); box-shadow: 0 12px 40px #2f5bd699 }
+.botao small { font-weight: 400; font-size: .8rem; opacity: .8 }
+.botao:hover { transform: translateY(-2px); box-shadow: 0 12px 40px #2f5bd699 }
+.whatsapp { background: linear-gradient(135deg, #25d366, #128c4b); box-shadow: 0 8px 30px #25d36640 }
+.whatsapp:hover { box-shadow: 0 12px 40px #25d36670 }

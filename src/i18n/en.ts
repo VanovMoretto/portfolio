@@ -75,6 +75,8 @@ const en: Mensagens = {
     lead: 'Two of them run every day at a real hotel and the third is in its final stage. One was sold and became a product.',
     outros: 'Other projects',
     verOnline: 'Live demo',
+    queroNoHotel: 'I want it for my hotel',
+    queroMensagem: "Hi Vanov! I saw Digital Concierge in your portfolio and I'd like to know how to get the digital guide for my hotel.",
     codigo: 'Code',
     restrito: 'Internal tool with real hotel data',
     captura: 'Screenshot of {{nome}}',
@@ -97,11 +99,11 @@ const en: Mensagens = {
       },
       astrolabioV1: {
         nome: 'Astrolábio',
-        resumo: 'Sold to Swan Novo Hamburgo, where it is live in about 160 rooms. Guests open it from a QR code and find everything in accordions, in 4 languages.',
+        resumo: 'A digital guest guide sold to Swan Novo Hamburgo, in use in about 160 rooms and available in 4 languages.',
       },
       astrolabioGen: {
         nome: 'Astrolábio Gen',
-        resumo: 'Rewritten in TypeScript for another hotel in the chain, with the minibar and a searchable SKY TV guide in modals and an interactive phone list.',
+        resumo: 'A new version, rewritten in TypeScript with its own visual identity, built for another hotel in the chain.',
       },
       digitalConcierge: {
         nome: 'Digital Concierge',
@@ -157,8 +159,10 @@ const en: Mensagens = {
     chamada: 'Have a project in mind?',
     lead: "Tell me what you need and I'll reply with a plan and a quote. I'm also open to full-stack developer roles.",
     email: 'Send an email',
+    whatsapp: 'Message me on WhatsApp',
+    whatsappMensagem: "Hi Vanov! I saw your portfolio and I'd like to talk about a project.",
   },
-  social: { email: 'Email' },
+  social: { email: 'Email', whatsapp: 'WhatsApp' },
   rodape: '© {{ano}} {{nome}}. Built with React, TypeScript, i18next and CSS Modules.',
 }
 

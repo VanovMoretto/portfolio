@@ -3,7 +3,11 @@ export const perfil = {
   github: 'https://github.com/VanovMoretto',
   linkedin: 'https://www.linkedin.com/in/vanovmoretto/',
   email: 'vanovmoretto@gmail.com',
+  whatsapp: '5514991190427',
+  whatsappVisivel: '+55 14 99119-0427',
 }
+
+export const linkWhatsApp = (mensagem: string) => `https://wa.me/${perfil.whatsapp}?text=${encodeURIComponent(mensagem)}`
 
 export type Tech = { nome: string; cor: string }
 
@@ -52,7 +56,7 @@ export type ProjetoId =
   | 'coworking'
   | 'painterRobot'
 
-export type Etapa = { id: ProjetoId; status: Status; repo?: string; demo?: string }
+export type Etapa = { id: ProjetoId; status: Status; repo?: string; demo?: string; pedido?: boolean }
 
 export type Projeto = {
   id: ProjetoId
@@ -74,14 +78,10 @@ export const projetos: Projeto[] = [
     status: 'producao',
     imagem: 'projetos/astrolabio-evolucao.webp',
     etapas: [
-      { id: 'astrolabioV1', status: 'producao', repo: gh + 'astrolabio', demo: 'https://astrolabionh.swanhoteis.com.br/' },
-      {
-        id: 'astrolabioGen',
-        status: 'concluido',
-        repo: gh + 'astrolabioGen',
-        // demo: 'https://vanovmoretto.github.io/astrolabioGen/', // liberar depois da venda
-      },
-      { id: 'digitalConcierge', status: 'venda', repo: gh + 'digital-concierge', demo: 'https://vanovmoretto.github.io/digital-concierge/' },
+      // v1 e Gen: só imagem e texto (contrato de cessão do v1)
+      { id: 'astrolabioV1', status: 'producao' },
+      { id: 'astrolabioGen', status: 'concluido' },
+      { id: 'digitalConcierge', status: 'venda', demo: 'https://digital-concierge.pages.dev/', pedido: true },
     ],
   },
   {

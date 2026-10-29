@@ -1,6 +1,6 @@
 import type { CSSProperties, MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { corDa, outrosProjetos, projetos, type Projeto, type ProjetoId, type Status } from '../data'
+import { corDa, linkWhatsApp, outrosProjetos, projetos, type Projeto, type ProjetoId, type Status } from '../data'
 import s from './Projects.module.css'
 
 function inclinar(e: MouseEvent<HTMLElement>) {
@@ -41,12 +41,17 @@ function Tags({ p }: { p: Projeto }) {
   )
 }
 
-function Links({ demo, repo, restrito }: { demo?: string; repo?: string; restrito?: boolean }) {
+function Links({ demo, repo, restrito, pedido }: { demo?: string; repo?: string; restrito?: boolean; pedido?: boolean }) {
   const { t } = useTranslation()
   return (
     <div className={s.links}>
       {demo && <a href={demo} target="_blank" rel="noreferrer">{t('projetos.verOnline')}</a>}
       {repo && <a href={repo} target="_blank" rel="noreferrer">{t('projetos.codigo')}</a>}
+      {pedido && (
+        <a className={s.pedido} href={linkWhatsApp(t('projetos.queroMensagem'))} target="_blank" rel="noreferrer">
+          {t('projetos.queroNoHotel')}
+        </a>
+      )}
       {restrito && (
         <span className={s.restrito}>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -100,7 +105,7 @@ function Case({ p }: { p: Projeto }) {
                 {t(`projetos.status.${e.status}`) && <span>{t(`projetos.status.${e.status}`)}</span>}
               </h4>
               <p>{textos(e.id).resumo}</p>
-              <Links demo={e.demo} repo={e.repo} />
+              <Links demo={e.demo} repo={e.repo} pedido={e.pedido} />
             </li>
           ))}
         </ol>

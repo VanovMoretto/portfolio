@@ -31,6 +31,13 @@
 .restrito { display: inline-flex; align-items: center; gap: 6px; color: var(--suave); font-size: .85rem }
 .restrito svg { width: 14px; height: 14px; flex: none }
 
+.links { align-items: center; flex-wrap: wrap }
+.links a.pedido {
+  display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 999px; text-decoration: none; color: #fff;
+  background: linear-gradient(135deg, #25d366, #128c4b); box-shadow: 0 6px 18px -6px #25d366aa; transition: transform .2s, box-shadow .2s;
+}
+.links a.pedido:hover { transform: translateY(-2px); box-shadow: 0 10px 24px -6px #25d366cc }
+
 @media (max-width: 760px) { .grade { grid-template-columns: minmax(0, 1fr) } }
 
 .print { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; border-radius: 12px; border: 1px solid color-mix(in srgb, var(--ceu) 13%, transparent) }

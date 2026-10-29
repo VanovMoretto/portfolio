@@ -73,6 +73,8 @@ const pt = {
     lead: 'Dois já rodam no dia a dia de um hotel de verdade e o terceiro está na reta final. Um deles foi vendido e virou produto.',
     outros: 'Outros projetos',
     verOnline: 'Ver online',
+    queroNoHotel: 'Quero no meu hotel',
+    queroMensagem: 'Olá, Vanov! Vi o Digital Concierge no seu portfólio e quero saber como ter o guia digital no meu hotel.',
     codigo: 'Código',
     restrito: 'Uso interno, com dados reais do hotel',
     captura: 'Captura de tela do {{nome}}',
@@ -96,11 +98,11 @@ const pt = {
       },
       astrolabioV1: {
         nome: 'Astrolábio',
-        resumo: 'Vendido ao Swan Novo Hamburgo, onde está no ar nos cerca de 160 quartos. O hóspede abre pelo QR Code e encontra tudo em acordeões, em 4 idiomas.',
+        resumo: 'Guia digital do hóspede vendido ao Swan Novo Hamburgo, em uso nos cerca de 160 quartos e disponível em 4 idiomas.',
       },
       astrolabioGen: {
         nome: 'Astrolábio Gen',
-        resumo: 'Reescrito em TypeScript para outro hotel da rede, com frigobar e guia de canais SKY com busca em modais e telefones interativos.',
+        resumo: 'Nova versão, reescrita em TypeScript e com identidade visual própria, feita para outro hotel da rede.',
       },
       digitalConcierge: {
         nome: 'Digital Concierge',
@@ -156,8 +158,10 @@ const pt = {
     chamada: 'Tem um projeto em mente?',
     lead: 'Conte o que você precisa e eu respondo com um plano e um orçamento. Também estou aberto a vagas de desenvolvedor full-stack.',
     email: 'Enviar e-mail',
+    whatsapp: 'Chamar no WhatsApp',
+    whatsappMensagem: 'Olá, Vanov! Vi seu portfólio e quero conversar sobre um projeto.',
   },
-  social: { email: 'E-mail' },
+  social: { email: 'E-mail', whatsapp: 'WhatsApp' },
   rodape: '© {{ano}} {{nome}}. Feito com React, TypeScript, i18next e CSS Modules.',
 }
 
