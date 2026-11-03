@@ -2,7 +2,7 @@
 
 Meu portfólio de desenvolvedor full-stack (React, TypeScript e Supabase): o que já construí, o que faço para clientes e como falar comigo. Disponível em português, inglês e espanhol, com tema escuro e claro.
 
-**No ar:** https://vanovmoretto.github.io/portfolio/
+**No ar:** https://vanovmoretto.com
 
 ## O que tem no site
 
@@ -67,4 +67,4 @@ public/
 
 ## Publicação
 
-O `base` do `vite.config.ts` é o nome do repositório (`/portfolio/`). No GitHub, o Pages precisa estar configurado para o branch `gh-pages` (Settings > Pages).
+O site fica no domínio `vanovmoretto.com` (arquivo `public/CNAME`), servido pelo GitHub Pages a partir do branch `gh-pages`. O DNS do domínio é gerenciado na Cloudflare.
