@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { linkWhatsApp, perfil } from '../data'
+import { linkWhatsApp } from '../data'
 import Social from './Social'
 import s from './Contact.module.css'
 
@@ -12,11 +12,10 @@ export default function Contact() {
       <div className={`${s.links} reveal`}>
         <a className={`${s.botao} ${s.whatsapp}`} href={linkWhatsApp(t('contato.whatsappMensagem'))} target="_blank" rel="noreferrer">
           {t('contato.whatsapp')}
-          <small>{perfil.whatsappVisivel}</small>
         </a>
-        <a className={s.botao} href={`mailto:${perfil.email}`}>
+        <a className={s.botao} href={`mailto:${t('contato.endereco')}`}>
           {t('contato.email')}
-          <small>{perfil.email}</small>
+          <small>{t('contato.endereco')}</small>
         </a>
         <Social semEmail semWhatsapp />
       </div>

@@ -156,6 +156,7 @@ const es: Mensagens = {
   },
 
   contato: {
+    endereco: 'hello@vanovmoretto.com',
     chamada: '¿Tienes un proyecto en mente?',
     lead: 'Cuéntame qué necesitas y te respondo con un plan y un presupuesto. También estoy abierto a puestos de desarrollador full-stack.',
     email: 'Enviar e-mail',

@@ -35,7 +35,7 @@ export default function Social({ semEmail = false, semWhatsapp = false }: { semE
     { nome: 'GitHub', href: perfil.github, icone: <Github /> },
     perfil.linkedin && { nome: 'LinkedIn', href: perfil.linkedin, icone: <Linkedin /> },
     !semWhatsapp && { nome: t('social.whatsapp'), href: linkWhatsApp(t('contato.whatsappMensagem')), icone: <WhatsApp /> },
-    !semEmail && perfil.email && { nome: t('social.email'), href: `mailto:${perfil.email}`, icone: <Email />, email: true },
+    !semEmail && { nome: t('social.email'), href: `mailto:${t('contato.endereco')}`, icone: <Email />, email: true },
   ].filter(Boolean) as { nome: string; href: string; icone: ReactElement; email?: boolean }[]
 
   return (

@@ -2,9 +2,7 @@ export const perfil = {
   nome: 'Vanov Moretto',
   github: 'https://github.com/VanovMoretto',
   linkedin: 'https://www.linkedin.com/in/vanovmoretto/',
-  email: 'vanovmoretto@gmail.com',
   whatsapp: '5514991190427',
-  whatsappVisivel: '+55 14 99119-0427',
 }
 
 export const linkWhatsApp = (mensagem: string) => `https://wa.me/${perfil.whatsapp}?text=${encodeURIComponent(mensagem)}`

@@ -155,6 +155,7 @@ const pt = {
   },
 
   contato: {
+    endereco: 'contato@vanovmoretto.com',
     chamada: 'Tem um projeto em mente?',
     lead: 'Conte o que você precisa e eu respondo com um plano e um orçamento. Também estou aberto a vagas de desenvolvedor full-stack.',
     email: 'Enviar e-mail',

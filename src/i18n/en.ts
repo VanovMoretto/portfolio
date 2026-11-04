@@ -156,6 +156,7 @@ const en: Mensagens = {
   },
 
   contato: {
+    endereco: 'hello@vanovmoretto.com',
     chamada: 'Have a project in mind?',
     lead: "Tell me what you need and I'll reply with a plan and a quote. I'm also open to full-stack developer roles.",
     email: 'Send an email',
