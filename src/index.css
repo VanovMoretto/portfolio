@@ -17,6 +17,8 @@
 }
 
 html { scroll-behavior: smooth; scroll-padding-top: 72px }
+/* os anéis do astrolábio, ao girar, passam da largura da tela no celular */
+main { overflow-x: clip }
 
 body {
   font-family: var(--texto); color: var(--gelo); line-height: 1.6; overflow-x: hidden;
