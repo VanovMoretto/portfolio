@@ -79,7 +79,7 @@ export const projetos: Projeto[] = [
       // v1 e Gen: só imagem e texto (contrato de cessão do v1)
       { id: 'astrolabioV1', status: 'producao' },
       { id: 'astrolabioGen', status: 'concluido' },
-      { id: 'digitalConcierge', status: 'venda', demo: 'https://digital-concierge.pages.dev/', pedido: true },
+      { id: 'digitalConcierge', status: 'venda', demo: 'https://digital-concierge-5rj.pages.dev/', pedido: true },
     ],
   },
   {
