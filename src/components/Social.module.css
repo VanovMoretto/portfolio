@@ -1,7 +1,11 @@
-.social { display: flex; gap: 10px }
+.social { display: flex; flex-wrap: wrap; gap: 10px }
 .social a {
-  width: 52px; height: 52px; display: grid; place-items: center; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--ceu) 27%, transparent); color: var(--gelo);
-  transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+  width: 52px; height: 52px; display: grid; place-items: center; border-radius: 12px;
+  color: var(--tinta); background: var(--superficie); box-shadow: inset 0 0 0 1.5px var(--linha);
+  transition: translate .2s, color .2s, background-color .2s, box-shadow .2s;
 }
-.social a:hover { transform: translateY(-3px); color: #fff; border-color: transparent; background: linear-gradient(135deg, var(--azul), #1a3fb0); box-shadow: 0 10px 30px #2f5bd677 }
+.social a:hover { translate: 0 -2px; color: var(--sobre-destaque); background: var(--destaque); box-shadow: var(--sombra-leve) }
 .social svg { width: 22px; height: 22px }
+
+.pequeno a { width: 42px; height: 42px; border-radius: 10px }
+.pequeno svg { width: 19px; height: 19px }

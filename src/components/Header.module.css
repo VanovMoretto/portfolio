@@ -1,0 +1,56 @@
+.faixa { overflow: hidden; background: var(--faixa-fundo); color: var(--sobre-campo-2); font-size: .875rem; font-weight: 500 }
+.trilho { display: flex; width: max-content; animation: letreiro 48s linear infinite }
+.faixa:hover .trilho { animation-play-state: paused }
+.trilho ul { display: flex; padding: 0; margin: 0; list-style: none }
+.trilho li { display: flex; align-items: center; gap: 28px; padding: 9px 28px 9px 0; white-space: nowrap }
+.trilho li::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--marcador) }
+@keyframes letreiro { to { translate: -50% 0 } }
+
+.topo {
+  position: sticky; top: 0; z-index: 20; background: var(--fundo);
+  border-bottom: 1px solid var(--linha);
+}
+.barra {
+  width: min(var(--largura), 100% - 48px); margin-inline: auto; min-height: 72px;
+  display: flex; align-items: center; gap: 20px;
+}
+.marca {
+  font-family: var(--titulo); font-stretch: 118%; font-weight: 800; font-size: 1.15rem; letter-spacing: -.01em;
+  text-decoration: none; white-space: nowrap;
+}
+.nav { display: flex; gap: 4px; margin-left: auto }
+.nav a {
+  padding: 8px 14px; border-radius: 8px; color: var(--tinta-2); text-decoration: none; font-weight: 500;
+  transition: color .2s, background-color .2s;
+}
+.nav a:hover { color: var(--tinta); background: var(--afundado) }
+.pedir { min-height: 44px; padding: 0 20px; font-size: .9375rem }
+
+@media (max-width: 900px) {
+  .nav { display: none }
+  .marca { margin-right: auto }
+}
+@media (max-width: 640px) {
+  .barra { width: min(var(--largura), 100% - 32px); min-height: 64px; gap: 12px }
+  .marca { font-size: 1rem; font-stretch: 105% }
+  .pedir { min-height: 40px; padding: 0 14px; font-size: .875rem }
+}
+@media (max-width: 420px) {
+  .marca { display: none }
+  .barra > :first-child { margin-right: auto }
+}
+@media (max-width: 380px) {
+  .barra { gap: 8px }
+  .pedir { padding: 0 12px; font-size: .8125rem }
+}
+
+/* progresso de leitura, onde o navegador anima pelo scroll */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .topo::after {
+      content: ''; position: absolute; inset: auto 0 -1px 0; height: 2px; background: var(--destaque); transform-origin: 0 50%;
+      animation: leitura linear both; animation-timeline: scroll(root);
+    }
+    @keyframes leitura { from { scale: 0 1 } to { scale: 1 1 } }
+  }
+}

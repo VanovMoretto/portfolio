@@ -1,0 +1,52 @@
+.faixa { background: var(--campo); color: var(--sobre-campo) }
+.grade { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(36px, 6vw, 80px); align-items: start }
+.chamada :global(.lead) { color: var(--sobre-campo-2) }
+.chamada :global(.titulo) { max-width: 14ch }
+
+.outros { margin-top: clamp(32px, 5vw, 56px) }
+.outros p { font-weight: 600; margin-bottom: 12px }
+.outros a { background: rgb(255 255 255 / .12); color: var(--sobre-campo); box-shadow: none }
+.outros a:hover { background: var(--sobre-campo); color: var(--campo) }
+
+.form {
+  display: grid; gap: 22px; padding: clamp(22px, 4vw, 40px); border-radius: 24px;
+  background: var(--superficie); color: var(--tinta); box-shadow: 0 34px 60px -30px rgb(0 0 0 / .6), 0 0 0 1px var(--linha);
+}
+.duas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px }
+
+.campo { display: grid; gap: 8px }
+.campo > span, .grupo legend { font-weight: 600; font-size: .9375rem }
+.campo input, .campo textarea {
+  width: 100%; min-height: 50px; padding: 12px 14px; border: 0; border-radius: 10px;
+  background: var(--fundo); box-shadow: inset 0 0 0 1.5px var(--linha); transition: box-shadow .2s;
+}
+.campo textarea { resize: vertical; min-height: 116px; line-height: 1.5 }
+.campo input::placeholder, .campo textarea::placeholder { color: color-mix(in srgb, var(--tinta-2) 80%, transparent) }
+.campo input:hover, .campo textarea:hover { box-shadow: inset 0 0 0 1.5px var(--tinta-2) }
+.campo input:focus, .campo textarea:focus { outline: none; box-shadow: inset 0 0 0 2px var(--link) }
+.campo input[aria-invalid='true'] { box-shadow: inset 0 0 0 2px #d4482f }
+
+.grupo { border: 0; padding: 0; min-width: 0 }
+.grupo legend { padding: 0; margin-bottom: 10px }
+.opcoes { display: flex; flex-wrap: wrap; gap: 8px }
+.opcao { position: relative; cursor: pointer }
+.opcao input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer }
+.opcao span {
+  display: inline-flex; align-items: center; min-height: 42px; padding: 0 15px; border-radius: 999px;
+  font-size: .9375rem; font-weight: 500; background: var(--fundo); box-shadow: inset 0 0 0 1.5px var(--linha);
+  transition: background-color .2s, color .2s, box-shadow .2s;
+}
+.opcao:hover span { box-shadow: inset 0 0 0 1.5px var(--link) }
+.opcao input:checked + span { background: var(--destaque); color: var(--sobre-destaque); box-shadow: none }
+.opcao input:focus-visible + span { outline: 2px solid var(--link); outline-offset: 3px }
+
+.aviso { padding: 12px 14px; border-radius: 10px; background: #fdecea; color: #8a2414; font-weight: 500; font-size: .9375rem }
+:global([data-theme='dark']) .aviso { background: #3a1820; color: #ffc9bd }
+
+.botoes { display: flex; flex-wrap: wrap; gap: 12px }
+
+@media (max-width: 960px) { .grade { grid-template-columns: minmax(0, 1fr) } }
+@media (max-width: 560px) {
+  .duas { grid-template-columns: minmax(0, 1fr) }
+  .botoes :global(.botao) { width: 100% }
+}

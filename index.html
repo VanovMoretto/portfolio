@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Vanov Moretto, desenvolvedor full-stack (React, TypeScript e Supabase). Web apps para hotéis, restaurantes e pequenas empresas." />
-    <meta name="theme-color" content="#030814" />
-    <title>Vanov Moretto | Desenvolvedor Full-Stack React</title>
+    <meta name="description" content="Vanov Moretto, desenvolvedor full-stack. Sistemas e sites sob medida para pequenas empresas, já em uso em hotéis e restaurantes." />
+    <meta name="theme-color" content="#f6f6f4" />
+    <title>Vanov Moretto | Sistemas e sites sob medida</title>
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:url" content="https://vanovmoretto.com/" />
-    <meta property="og:title" content="Vanov Moretto | Desenvolvedor Full-Stack React" />
+    <meta property="og:title" content="Vanov Moretto | Sistemas e sites sob medida" />
     <meta property="og:description" content="Desenvolvo web apps para hotéis, restaurantes e pequenas empresas. Alguns deles já fazem parte do dia a dia de um hotel." />
     <meta property="og:image" content="https://vanovmoretto.com/og.jpg?v=3" />
     <meta property="og:image:width" content="1200" />
@@ -20,13 +20,18 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Onest:wght@400..700&display=swap" rel="stylesheet" />
 
-    <!-- aplica o tema salvo antes do primeiro render -->
+    <!-- tema salvo; sem escolha, segue o sistema (claro por padrão) -->
     <script>
-      try {
-        if (localStorage.getItem('tema') === 'light') document.documentElement.dataset.theme = 'light'
-      } catch {}
+      ;(function () {
+        var tema
+        try { tema = localStorage.getItem('tema') } catch (e) {}
+        if (tema !== 'light' && tema !== 'dark') tema = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = tema
+        document.documentElement.classList.add('js')
+        document.querySelector('meta[name="theme-color"]').setAttribute('content', tema === 'dark' ? '#16171a' : '#f6f6f4')
+      })()
     </script>
   </head>
   <body>

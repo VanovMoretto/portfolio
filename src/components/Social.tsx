@@ -29,7 +29,15 @@ const Email = () => (
 )
 
 // semEmail / semWhatsapp: a seção já tem botão próprio
-export default function Social({ semEmail = false, semWhatsapp = false }: { semEmail?: boolean; semWhatsapp?: boolean }) {
+export default function Social({
+  semEmail = false,
+  semWhatsapp = false,
+  pequeno = false,
+}: {
+  semEmail?: boolean
+  semWhatsapp?: boolean
+  pequeno?: boolean
+}) {
   const { t } = useTranslation()
   const links = [
     { nome: 'GitHub', href: perfil.github, icone: <Github /> },
@@ -39,7 +47,7 @@ export default function Social({ semEmail = false, semWhatsapp = false }: { semE
   ].filter(Boolean) as { nome: string; href: string; icone: ReactElement; email?: boolean }[]
 
   return (
-    <div className={s.social}>
+    <div className={`${s.social} ${pequeno ? s.pequeno : ''}`}>
       {links.map((l) => (
         <a key={l.nome} href={l.href} aria-label={l.nome} title={l.nome} target={l.email ? undefined : '_blank'} rel="noreferrer">
           {l.icone}

@@ -30,12 +30,7 @@ export default function ThemeSwitch() {
   const [tema, setTema] = useState<Tema>(() => (document.documentElement.dataset.theme === 'light' ? 'light' : 'dark'))
 
   useEffect(() => {
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'light' ? '#f6f8ff' : '#030814')
-    try {
-      localStorage.setItem('tema', tema)
-    } catch {
-      // localStorage indisponível
-    }
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', tema === 'light' ? '#f6f6f4' : '#16171a')
   }, [tema])
 
   const [mexeu, setMexeu] = useState(false)
@@ -52,6 +47,12 @@ export default function ThemeSwitch() {
         trocar(claro ? 'dark' : 'light', (novo) => {
           setMexeu(true)
           setTema(novo)
+          // só guarda quando a pessoa escolhe; sem escolha, segue o sistema
+          try {
+            localStorage.setItem('tema', novo)
+          } catch {
+            // localStorage indisponível
+          }
         })
       }
     >

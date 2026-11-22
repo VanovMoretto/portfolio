@@ -1,5 +1,85 @@
-.lista { list-style: none; padding: 0; margin: 48px 0 0 6px; border-left: 1px solid color-mix(in srgb, var(--ceu) 20%, transparent) }
-.item { position: relative; padding: 2px 0 36px 32px }
-.item::before { content: ''; position: absolute; left: -6px; top: 9px; width: 11px; height: 11px; border-radius: 50%; background: var(--ceu); box-shadow: 0 0 16px var(--ceu) }
-.item h3 { font-family: var(--titulo); font-size: 1.35rem; margin-bottom: 6px }
-.item p { color: var(--suave); max-width: 60ch }
+.topo { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(32px, 6vw, 80px); align-items: start }
+
+.retrato {
+  --raio: 24px;
+  position: sticky; top: 104px; aspect-ratio: 4 / 5; border-radius: 24px; overflow: hidden;
+  background: var(--campo); box-shadow: var(--sombra);
+}
+.retrato img { width: 100%; height: 100%; object-fit: cover }
+.monograma {
+  display: grid; place-items: center; height: 100%;
+  font-family: var(--titulo); font-stretch: 125%; font-weight: 900; font-size: clamp(5rem, 13vw, 9rem); letter-spacing: -.04em;
+  color: var(--sobre-campo);
+}
+
+.itens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; margin-top: 44px }
+.itens div { padding-top: 18px; border-top: 1px solid var(--linha) }
+.itens dt { font-weight: 700; font-size: 1.0625rem; margin-bottom: 6px }
+.itens dd { margin: 0; color: var(--tinta-2); font-size: .9688rem; text-wrap: pretty }
+
+.ferramentas {
+  margin-top: clamp(72px, 9vw, 112px); display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr);
+  gap: 24px clamp(32px, 6vw, 80px); align-items: center;
+}
+.ferramentas h3 {
+  font-family: var(--titulo); font-stretch: 114%; font-weight: 800; font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.05;
+}
+
+/* órbita */
+.cena { display: grid; justify-items: center }
+.orbita { position: relative; width: 580px; height: 580px }
+.nucleo {
+  position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 156px; height: 156px; padding: 16px;
+  display: grid; align-content: center; justify-items: center; gap: 4px; text-align: center; border-radius: 50%;
+  background: var(--campo); color: var(--sobre-campo);
+  box-shadow: 0 0 0 4px var(--c), 0 24px 40px -18px rgb(16 20 46 / .5);
+  transition: box-shadow .3s;
+}
+.nucleo strong { font-family: var(--titulo); font-stretch: 110%; font-size: 1.2rem; line-height: 1.1 }
+.nucleo small { font-size: .72rem; line-height: 1.3; color: var(--sobre-campo-2) }
+.anel { position: absolute; top: 50%; left: 50%; width: 0; height: 0; animation: giro var(--dur) linear infinite var(--dir) }
+.anel::before {
+  content: ''; position: absolute; width: calc(var(--r) * 2); height: calc(var(--r) * 2); pointer-events: none;
+  left: calc(var(--r) * -1); top: calc(var(--r) * -1); border-radius: 50%;
+  border: 1.5px solid color-mix(in srgb, var(--tinta-2) 32%, transparent);
+}
+/* dados e servidor: tracejado desenhado à mão (o dashed do navegador some numa curva) */
+.tracejado::before {
+  border: 0;
+  background: repeating-conic-gradient(color-mix(in srgb, var(--tinta-2) 55%, transparent) 0 3.2deg, transparent 3.2deg 7.5deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+}
+.pos { position: absolute; transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(var(--a) * -1)) translate(-50%, -50%) }
+.chip {
+  display: flex; align-items: center; gap: 8px; white-space: nowrap; padding: 7px 14px 7px 11px; border-radius: 999px;
+  font-size: .875rem; font-weight: 600; color: var(--tinta); background: var(--superficie); outline: none;
+  box-shadow: inset 0 0 0 1.5px var(--linha), var(--sombra-leve);
+  animation: giro var(--dur) linear infinite var(--idir);
+  transition: box-shadow .25s, scale .25s, opacity .25s;
+}
+.chip::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--c) }
+.chip:hover, .chip:focus-visible { scale: 1.1; box-shadow: inset 0 0 0 2px var(--c), var(--sombra) }
+.orbita:has(.chip:hover) .chip:not(:hover), .orbita:has(.chip:focus-visible) .chip:not(:focus-visible) { opacity: .4 }
+.orbita:hover .anel, .orbita:hover .chip, .orbita:focus-within .anel, .orbita:focus-within .chip { animation-play-state: paused }
+@keyframes giro { to { rotate: 360deg } }
+
+.legenda { display: flex; align-items: center; gap: 10px; margin-top: 4px; color: var(--tinta-2); font-size: .9rem }
+.ponto { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid color-mix(in srgb, var(--tinta-2) 70%, transparent) }
+.pontoBack {
+  margin-left: 14px; border: 0;
+  background: repeating-conic-gradient(var(--tinta-2) 0 30deg, transparent 30deg 60deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 2px));
+}
+
+/* zoom em vez de scale: reduz também o espaço ocupado */
+@media (max-width: 1180px) { .orbita { zoom: .8 } }
+@media (max-width: 900px) {
+  .topo, .ferramentas { grid-template-columns: minmax(0, 1fr) }
+  .retrato { position: static; max-width: 300px; width: 100% }
+  .orbita { zoom: .62 }
+}
+@media (max-width: 560px) { .itens { grid-template-columns: minmax(0, 1fr); gap: 22px } }
+@media (max-width: 420px) { .orbita { zoom: .54 } }
+@media (max-width: 360px) { .orbita { zoom: .48 } .legenda { flex-wrap: wrap; justify-content: center } }

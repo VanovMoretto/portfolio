@@ -6,11 +6,13 @@ Meu portfólio de desenvolvedor full-stack (React, TypeScript e Supabase): o que
 
 ## O que tem no site
 
-- **Início:** apresentação, selo de disponibilidade para freelance, números que comprovam o trabalho (quartos com o guia no ar, hotéis em aprovação, idiomas) e um "astrolábio" com as tecnologias que uso. Passando o mouse em uma delas, o centro mostra em quais projetos ela aparece.
-- **Projetos:** os destaques em cards grandes. O Astrolábio aparece como um case com a linha do tempo das três versões, do guia vendido ao produto white-label. Ao lado, o Lead Manager (CRM em uso no hotel) e o Irius Gastronomia (cardápio com pedidos em tempo real). Projetos de cliente e de estudo ficam numa lista compacta.
+- **Topo:** faixa de disponibilidade, cabeçalho com o interruptor de tema, as bandeiras de idioma e o botão "Pedir orçamento".
+- **Início:** o que eu faço, a pergunta "O que você precisa?" (as opções marcadas já aparecem marcadas no formulário) e capturas reais do Lead Manager e do Diretório de Serviços.
+- **Projetos:** o Diretório de Serviços como case (guia do hóspede da rede Swan, com o Astrolábio de Novo Hamburgo como primeira versão e o Digital Concierge), o Lead Manager e o Irius Gastronomia em destaque, e outros trabalhos numa lista compacta.
 - **Serviços:** o que eu faço para clientes e como trabalho.
-- **Sobre** e **Contato**.
-- **Tema e idioma:** o interruptor de tema fica no canto superior esquerdo e as bandeiras de idioma no direito. As duas escolhas ficam salvas no navegador. Na primeira visita vale o idioma do navegador.
+- **Sobre:** foto (ou monograma), o que me diferencia e a órbita com as tecnologias que uso. Passando o mouse em uma delas, o centro mostra em quais projetos ela aparece.
+- **Orçamento:** formulário curto que monta a mensagem pronta no WhatsApp ou no e-mail. Não tem servidor: nada é enviado sem a pessoa confirmar no app dela.
+- **Tema e idioma:** sem escolha salva, o tema segue o sistema (claro por padrão) e o idioma segue o navegador. Ao trocar, a escolha fica salva.
 
 ## Tecnologias
 
@@ -35,17 +37,18 @@ npm run dev
 
 ```
 src/
-├── data.ts          projetos, links, tags, status, imagens e tecnologias
+├── data.ts          perfil, projetos, links, status, imagens, tecnologias e opções do orçamento
+├── orcamento.ts     opções marcadas no início, compartilhadas com o formulário
 ├── i18n/
 │   ├── pt.ts        textos em português (referência)
 │   ├── en.ts        textos em inglês
 │   ├── es.ts        textos em espanhol
 │   └── index.ts     configuração do i18next e lista de idiomas
 ├── components/      uma seção por arquivo (.tsx + .module.css), mais o interruptor de tema e o seletor de idioma
-├── App.tsx          layout da página, rolagem e animações de entrada
+├── App.tsx          ordem das seções e rodapé
 └── index.css        cores dos dois temas, fontes e estilos gerais
 public/
-├── projetos/        capturas de tela dos projetos (16:10, em .webp)
+├── projetos/        capturas de tela dos projetos (.webp); diretorio-caxias/ tem as telas do celular
 ├── og.jpg           imagem da prévia ao compartilhar o link (1200x630)
 └── favicon.svg
 ```
@@ -58,11 +61,13 @@ public/
   2. Inclua esse `id` no tipo `ProjetoId`.
   3. Escreva os textos dele em `projetos.itens.<id>`, nos três idiomas.
   4. Se tiver captura de tela, coloque em `public/projetos/` e preencha o campo `imagem`.
-- **Status dos projetos:** `producao`, `uso`, `concluido`, `venda`, `final`, `andamento`, `breve`, `antigo` ou `cliente`. Os rótulos ficam em `projetos.status`, nos textos (rótulo vazio = sem etiqueta). Projeto sem demo pública pode usar `restrito: true`.
-- **Números do início:** valores em `numeros`, no `data.ts`, e legendas em `hero.numeros`, nos textos. Use só números que dá para comprovar.
-- **Serviços:** textos em `servicos`; os ícones ficam em `src/components/Services.tsx`, na mesma ordem dos textos.
-- **Tecnologias do astrolábio:** a cor fica em `front` e `back`, no `data.ts`. A lista de projetos de cada uma fica em `stack`, nos textos.
-- **Cores dos temas:** variáveis no `:root` (escuro) e no `:root[data-theme='light']` (claro), em `src/index.css`.
+- **Status dos projetos:** `producao`, `aprovado`, `desenvolvimento`, `uso`, `venda`, `final`, `cliente` ou `estudo`. Os rótulos ficam em `projetos.status`, nos textos.
+- **Diretório de Serviços:** status de cada hotel e telas em `diretorio`, no `data.ts`; textos em `projetos.diretorio`. Por contrato, sem link de demo ou código e sem telefones, ramais ou valores nas imagens.
+- **Foto:** coloque a imagem em `public/` e preencha `perfil.foto` no `data.ts` (ex.: `'vanov.webp'`). Sem foto, aparece o monograma.
+- **Opções do orçamento:** listas `necessidades` e `prazos`, no `data.ts`; rótulos em `necessidades` e `orcamento.prazos`, nos textos.
+- **Serviços:** textos em `servicos`.
+- **Tecnologias da órbita:** a cor fica em `front` e `back`, no `data.ts`. A lista de projetos de cada uma fica em `stack`, nos textos.
+- **Cores dos temas:** variáveis no `:root` (claro) e no `:root[data-theme='dark']` (escuro), em `src/index.css`.
 - **Novo idioma:** crie o arquivo de textos, registre o idioma em `src/i18n/index.ts` e desenhe a bandeira em `src/components/Bandeira.tsx`.
 
 ## Publicação

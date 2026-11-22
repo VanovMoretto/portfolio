@@ -1,159 +1,169 @@
-import type { CSSProperties, MouseEvent } from 'react'
 import { useTranslation } from 'react-i18next'
-import { corDa, linkWhatsApp, outrosProjetos, projetos, type Projeto, type ProjetoId, type Status } from '../data'
+import type { CSSProperties } from 'react'
+import Titulo from './Titulo'
+import { diretorio, linkWhatsApp, outrosProjetos, projetos, type Projeto } from '../data'
+import Seta from './Seta'
 import s from './Projects.module.css'
 
-function inclinar(e: MouseEvent<HTMLElement>) {
-  const el = e.currentTarget
-  const b = el.getBoundingClientRect()
-  const x = (e.clientX - b.left) / b.width
-  const y = (e.clientY - b.top) / b.height
-  const k = Math.min(1, 560 / b.width)
-  el.style.setProperty('--rx', `${(0.5 - y) * 7 * k}deg`)
-  el.style.setProperty('--ry', `${(x - 0.5) * 9 * k}deg`)
-  el.style.setProperty('--mx', `${x * 100}%`)
-  el.style.setProperty('--my', `${y * 100}%`)
-}
-
-function soltar(e: MouseEvent<HTMLElement>) {
-  e.currentTarget.style.setProperty('--rx', '0deg')
-  e.currentTarget.style.setProperty('--ry', '0deg')
-}
-
-function useTextos() {
+function Diretorio() {
   const { t } = useTranslation()
-  const itens = t('projetos.itens', { returnObjects: true })
-  return (id: ProjetoId): { nome: string; gancho?: string; resumo: string } => itens[id]
-}
+  const unidades = t('projetos.diretorio.unidades', { returnObjects: true })
 
-function Imagem({ p, className }: { p: Projeto; className: string }) {
-  const { t } = useTranslation()
-  const textos = useTextos()
-  if (!p.imagem) return null
-  return <img className={className} src={import.meta.env.BASE_URL + p.imagem} alt={t('projetos.captura', { nome: textos(p.id).nome })} loading="lazy" />
-}
-
-function Tags({ p }: { p: Projeto }) {
   return (
-    <ul className={s.tags}>
-      {p.tags.map((tag) => <li key={tag} style={{ '--c': corDa(tag) } as CSSProperties}>{tag}</li>)}
-    </ul>
+    <article className={s.caso} data-revela="cortina">
+      <div className={s.casoTopo}>
+        <div className={s.casoTexto} data-revela="grupo">
+          <Titulo como="h3" className={s.casoNome} texto={t('projetos.diretorio.nome')} />
+          <p className={s.casoGancho}>{t('projetos.diretorio.gancho')}</p>
+          <p>{t('projetos.diretorio.resumo')}</p>
+          <p>{t('projetos.diretorio.comoFunciona')}</p>
+        </div>
+        <div className={s.telas} role="img" aria-label={t('projetos.diretorio.telas')} data-revela="grupo">
+          {diretorio.telas.map((src, i) => (
+            <img
+              key={src}
+              className="paralaxe"
+              style={{ '--p': `${16 + i * 26}px` } as CSSProperties}
+              src={src}
+              alt=""
+              width={780}
+              height={1688}
+              loading="lazy"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className={s.casoBase} data-revela="grupo">
+        <div>
+          <h4>{t('projetos.diretorio.unidadesTitulo')}</h4>
+          <ul className={s.unidades}>
+            {unidades.map((u, i) => (
+              <li key={u.nome}>
+                <span>
+                  <strong>{u.nome}</strong>
+                  <small>{u.detalhe}</small>
+                </span>
+                <span className="status" data-s={diretorio.unidades[i]}>
+                  {t(`projetos.status.${diretorio.unidades[i]}`)}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h4>{t('projetos.diretorio.entregasTitulo')}</h4>
+          <ul className={s.entregas}>
+            {t('projetos.diretorio.entregas', { returnObjects: true }).map((x, i) => (
+              <li key={i}>{x}</li>
+            ))}
+          </ul>
+          <ul className="tags">
+            {diretorio.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
+        </div>
+        <div className={s.concierge}>
+          <h4>{t('projetos.diretorio.concierge.nome')}</h4>
+          <span className="status" data-s={diretorio.concierge.status}>
+            {t(`projetos.status.${diretorio.concierge.status}`)}
+          </span>
+          <p>{t('projetos.diretorio.concierge.resumo')}</p>
+          <div className={s.links}>
+            <a href={diretorio.concierge.demo} target="_blank" rel="noreferrer">
+              {t('projetos.verOnline')} <Seta fora />
+            </a>
+            <a href={linkWhatsApp(t('projetos.queroMensagem'))} target="_blank" rel="noreferrer">
+              {t('projetos.queroNoHotel')} <Seta fora />
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
   )
 }
 
-function Links({ demo, repo, restrito, pedido }: { demo?: string; repo?: string; restrito?: boolean; pedido?: boolean }) {
+function Links({ p }: { p: Projeto }) {
   const { t } = useTranslation()
   return (
     <div className={s.links}>
-      {demo && <a href={demo} target="_blank" rel="noreferrer">{t('projetos.verOnline')}</a>}
-      {repo && <a href={repo} target="_blank" rel="noreferrer">{t('projetos.codigo')}</a>}
-      {pedido && (
-        <a className={s.pedido} href={linkWhatsApp(t('projetos.queroMensagem'))} target="_blank" rel="noreferrer">
-          {t('projetos.queroNoHotel')}
+      {p.demo && (
+        <a href={p.demo} target="_blank" rel="noreferrer">
+          {t('projetos.verOnline')} <Seta fora />
         </a>
       )}
-      {restrito && (
-        <span className={s.restrito}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-            <rect x="5" y="11" width="14" height="10" rx="2" />
-            <path d="M8 11V8a4 4 0 0 1 8 0v3" />
-          </svg>
-          {t('projetos.restrito')}
-        </span>
+      {p.repo && (
+        <a href={p.repo} target="_blank" rel="noreferrer">
+          {t('projetos.codigo')} <Seta fora />
+        </a>
       )}
     </div>
   )
 }
 
-function Etiqueta({ status }: { status: Status }) {
+function Destaque({ p }: { p: Projeto }) {
   const { t } = useTranslation()
-  const rotulo = t(`projetos.status.${status}`)
-  return rotulo ? <span className={`${s.status} ${s[status]}`}>{rotulo}</span> : null
-}
-
-function Card({ p }: { p: Projeto }) {
-  const texto = useTextos()(p.id)
+  const nome = t(`projetos.itens.${p.id}.nome`)
   return (
-    <article className={s.card} onMouseMove={inclinar} onMouseLeave={soltar}>
-      <Imagem p={p} className={s.print} />
-      <Etiqueta status={p.status} />
-      <h3>{texto.nome}</h3>
-      <p className={s.gancho}>{texto.gancho}</p>
-      <p>{texto.resumo}</p>
-      <Tags p={p} />
-      <Links demo={p.demo} repo={p.repo} restrito={p.restrito} />
-    </article>
-  )
-}
-
-function Case({ p }: { p: Projeto }) {
-  const { t } = useTranslation()
-  const textos = useTextos()
-  const texto = textos(p.id)
-  return (
-    <article className={`${s.card} ${s.case}`} onMouseMove={inclinar} onMouseLeave={soltar}>
-      <div className={s.caseTexto}>
-        <Etiqueta status={p.status} />
-        <h3>{texto.nome}</h3>
-        <p className={s.gancho}>{texto.gancho}</p>
-        <p>{texto.resumo}</p>
-        <ol className={s.etapas}>
-          {p.etapas!.map((e, i) => (
-            <li key={e.id} className={s[e.status]}>
-              <h4>
-                <small>v{i + 1}</small> {textos(e.id).nome}
-                {t(`projetos.status.${e.status}`) && <span>{t(`projetos.status.${e.status}`)}</span>}
-              </h4>
-              <p>{textos(e.id).resumo}</p>
-              <Links demo={e.demo} repo={e.repo} pedido={e.pedido} />
-            </li>
-          ))}
-        </ol>
-        <Tags p={p} />
+    <article className={s.destaque}>
+      <div className={s.quadro} data-revela="cortina">
+        <img src={p.imagem} alt={t('projetos.captura', { nome })} width={1280} height={800} loading="lazy" />
       </div>
-      <Imagem p={p} className={s.casePrint} />
+      <div className={s.destaqueTexto} data-revela="grupo">
+        <span className="status" data-s={p.status}>
+          {t(`projetos.status.${p.status}`)}
+        </span>
+        <h3>{nome}</h3>
+        <p className={s.gancho}>{t(`projetos.itens.${p.id}.gancho`)}</p>
+        <p>{t(`projetos.itens.${p.id}.resumo`)}</p>
+        <ul className="tags">
+          {p.tags.map((tag) => (
+            <li key={tag}>{tag}</li>
+          ))}
+        </ul>
+        <Links p={p} />
+      </div>
     </article>
   )
 }
 
 export default function Projects() {
   const { t } = useTranslation()
-  const textos = useTextos()
   return (
     <section id="projetos" className="secao">
-      <h2 className="titulo reveal">{t('projetos.titulo')}</h2>
-      <p className="lead reveal">{t('projetos.lead')}</p>
-      <ul className={s.grade}>
-        {projetos.map((p, i) => (
-          <li key={p.id} className={`reveal ${p.etapas ? s.largo : ''}`} style={{ '--d': `${(i % 2) * 120}ms` } as CSSProperties}>
-            {p.etapas ? <Case p={p} /> : <Card p={p} />}
-          </li>
-        ))}
-      </ul>
+      <Titulo className="titulo" texto={t('projetos.titulo')} />
+      <p className="lead" data-revela="subir">
+        {t('projetos.lead')}
+      </p>
 
-      {outrosProjetos.length > 0 && (
-        <>
-          <h3 className={`${s.outrosTitulo} reveal`}>{t('projetos.outros')}</h3>
-          <ul className={s.outros}>
-            {outrosProjetos.map((p) => {
-              const texto = textos(p.id)
-              return (
-                <li key={p.id} className={`${s.linha} reveal`}>
-                  <Imagem p={p} className={s.mini} />
-                  <div>
-                    <Etiqueta status={p.status} />
-                    <h4>{texto.nome}</h4>
-                    <p className={s.gancho}>{texto.gancho}</p>
-                    <p>{texto.resumo}</p>
-                    <Tags p={p} />
-                  </div>
-                  <Links demo={p.demo} repo={p.repo} />
-                </li>
-              )
-            })}
-          </ul>
-        </>
-      )}
+      <Diretorio />
+      {projetos.map((p) => (
+        <Destaque key={p.id} p={p} />
+      ))}
+
+      <h3 className={s.outrosTitulo} data-revela="subir">
+        {t('projetos.outros')}
+      </h3>
+      <div className={s.outros} data-revela="grupo">
+        {outrosProjetos.map((p) => {
+          const nome = t(`projetos.itens.${p.id}.nome`)
+          return (
+            <article key={p.id} className={s.outro}>
+              <img src={p.imagem} alt={t('projetos.captura', { nome })} width={800} height={500} loading="lazy" />
+              <div>
+                <span className="status" data-s={p.status}>
+                  {t(`projetos.status.${p.status}`)}
+                </span>
+                <h4>{nome}</h4>
+                <p className={s.gancho}>{t(`projetos.itens.${p.id}.gancho`)}</p>
+                <p>{t(`projetos.itens.${p.id}.resumo`)}</p>
+                <Links p={p} />
+              </div>
+            </article>
+          )
+        })}
+      </div>
     </section>
   )
 }

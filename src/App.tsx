@@ -1,71 +1,57 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
+import Header from './components/Header'
 import Hero from './components/Hero'
 import Projects from './components/Projects'
 import Services from './components/Services'
 import About from './components/About'
-import Contact from './components/Contact'
-import ThemeSwitch from './components/ThemeSwitch'
-import LanguageSwitch from './components/LanguageSwitch'
+import Orcamento from './components/Orcamento'
+import Social from './components/Social'
 import { perfil } from './data'
 
 export default function App() {
   const { t } = useTranslation()
 
+  // marca o que entrou na tela; o CSS cuida da animação
   useEffect(() => {
-    let raf = 0
-    const rolar = () => {
-      cancelAnimationFrame(raf)
-      raf = requestAnimationFrame(() => {
-        const max = document.documentElement.scrollHeight - innerHeight
-        const estilo = document.documentElement.style
-        estilo.setProperty('--scroll', String(scrollY))
-        estilo.setProperty('--p', String(max > 0 ? scrollY / max : 0))
-      })
-    }
-    rolar()
-    addEventListener('scroll', rolar, { passive: true })
-
-    const io = new IntersectionObserver(
-      (entradas) =>
-        entradas.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in')
+    const observar = (threshold: number) => {
+      const io = new IntersectionObserver(
+        (entradas) =>
+          entradas.forEach((e) => {
+            if (!e.isIntersecting) return
+            // o que está dentro de uma cortina entra junto com ela
+            ;[e.target, ...e.target.querySelectorAll('[data-revela]')].forEach((el) => el.setAttribute('data-visto', ''))
             io.unobserve(e.target)
-          }
-        }),
-      { threshold: 0.15 },
+          }),
+        { rootMargin: '0px 0px -8% 0px', threshold },
+      )
+      return io
+    }
+    const geral = observar(0.12)
+    // a cortina começa quase fechada (1px à mostra): qualquer pixel visível já conta
+    const cortina = observar(0)
+    document.querySelectorAll('[data-revela]').forEach((el) =>
+      (el.getAttribute('data-revela') === 'cortina' ? cortina : geral).observe(el),
     )
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el))
-
     return () => {
-      removeEventListener('scroll', rolar)
-      cancelAnimationFrame(raf)
-      io.disconnect()
+      geral.disconnect()
+      cortina.disconnect()
     }
   }, [])
 
   return (
     <>
-      <div className="progresso" />
-      <ThemeSwitch />
-      <nav className="nav" aria-label={t('nav.rotulo')}>
-        <a className="logo" href="#topo">VM</a>
-        <a href="#projetos">{t('nav.projetos')}</a>
-        <a href="#servicos">{t('nav.servicos')}</a>
-        <a href="#sobre">{t('nav.sobre')}</a>
-        <a href="#contato">{t('nav.contato')}</a>
-      </nav>
-      <LanguageSwitch />
+      <Header />
       <main id="topo">
         <Hero />
         <Projects />
         <Services />
         <About />
-        <Contact />
+        <Orcamento />
       </main>
       <footer className="rodape">
-        {t('rodape', { ano: new Date().getFullYear(), nome: perfil.nome })}
+        <p>{t('rodape', { ano: new Date().getFullYear(), nome: perfil.nome })}</p>
+        <Social pequeno />
       </footer>
     </>
   )
