@@ -176,8 +176,8 @@ html.tema-suave *, html.tema-suave *::before, html.tema-suave *::after {
     transition: clip-path 1.3s var(--suave-saida) var(--d, 0ms);
   }
   .js [data-revela='cortina'][data-visto] { clip-path: inset(-120px -120px -120px -120px round var(--raio, 16px)) }
-  .js [data-revela='cortina'] > img { scale: 1.14; transition: scale 1.8s var(--suave-saida) var(--d, 0ms) }
-  .js [data-revela='cortina'][data-visto] > img { scale: 1 }
+  .js [data-revela='cortina'] > img, .js [data-revela='cortina'] > a > img { scale: 1.14; transition: scale 1.8s var(--suave-saida) var(--d, 0ms) }
+  .js [data-revela='cortina'][data-visto] > img, .js [data-revela='cortina'][data-visto] > a > img { scale: 1 }
 }
 
 /* dentro da cortina, o conteúdo espera ela abrir um pouco */

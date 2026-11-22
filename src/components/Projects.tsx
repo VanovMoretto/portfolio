@@ -102,13 +102,46 @@ function Links({ p }: { p: Projeto }) {
   )
 }
 
+// a captura vira link para a demo, com o selo "Ver online" que aparece no hover
+function Imagem({
+  p,
+  nome,
+  largura,
+  altura,
+  miniatura = false,
+}: {
+  p: Projeto
+  nome: string
+  largura: number
+  altura: number
+  miniatura?: boolean
+}) {
+  const { t } = useTranslation()
+  const img = <img src={p.imagem} alt={t('projetos.captura', { nome })} width={largura} height={altura} loading="lazy" />
+  if (!p.demo) return img
+  return (
+    <a
+      className={miniatura ? s.miniatura : undefined}
+      href={p.demo}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${t('projetos.verOnline')}: ${nome}`}
+    >
+      {img}
+      <span className={s.selo} aria-hidden="true">
+        {t('projetos.verOnline')} <Seta fora />
+      </span>
+    </a>
+  )
+}
+
 function Destaque({ p }: { p: Projeto }) {
   const { t } = useTranslation()
   const nome = t(`projetos.itens.${p.id}.nome`)
   return (
     <article className={s.destaque}>
       <div className={s.quadro} data-revela="cortina">
-        <img src={p.imagem} alt={t('projetos.captura', { nome })} width={1280} height={800} loading="lazy" />
+        <Imagem p={p} nome={nome} largura={1280} altura={800} />
       </div>
       <div className={s.destaqueTexto} data-revela="grupo">
         <span className="status" data-s={p.status}>
@@ -150,7 +183,7 @@ export default function Projects() {
           const nome = t(`projetos.itens.${p.id}.nome`)
           return (
             <article key={p.id} className={s.outro}>
-              <img src={p.imagem} alt={t('projetos.captura', { nome })} width={800} height={500} loading="lazy" />
+              <Imagem p={p} nome={nome} largura={800} altura={500} miniatura />
               <div>
                 <span className="status" data-s={p.status}>
                   {t(`projetos.status.${p.status}`)}

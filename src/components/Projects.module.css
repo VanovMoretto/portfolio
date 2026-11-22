@@ -106,3 +106,55 @@
   .telas img:nth-child(3) { margin-top: 40px }
   .outro { grid-template-columns: minmax(0, 1fr); gap: 14px }
 }
+
+/* destaque ao passar o mouse nas imagens (só em quem tem mouse).
+   O quadro inteiro cresce (a imagem não é cortada), com contorno e sombra em índigo.
+   Usa transform, scale e filter, que não brigam com as animações de entrada e de paralaxe. */
+.quadro > a, .miniatura { position: relative; display: block; border-radius: inherit }
+.selo {
+  position: absolute; right: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 6px;
+  padding: 9px 14px; border-radius: 999px; background: var(--destaque); color: var(--sobre-destaque);
+  font-size: .875rem; font-weight: 600; box-shadow: 0 10px 24px -10px rgb(0 0 0 / .5);
+  opacity: 0; pointer-events: none;
+}
+.selo svg { width: 15px; height: 15px }
+.miniatura { border-radius: 10px }
+.miniatura .selo { right: 10px; bottom: 10px; padding: 6px 11px; font-size: .8125rem }
+
+@media (hover: hover) {
+  .quadro > a:focus-visible .selo, .miniatura:focus-visible .selo { opacity: 1 }
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* card grande: movimento menor, início macio e mais longo, para não parecer seco */
+  /* junta com a transição da cortina, que tem prioridade maior e apagava esta */
+  .quadro,
+  :global(.js) .quadro:global([data-revela]) {
+    --suave-hover: cubic-bezier(.33, .9, .4, 1);
+    transition: clip-path 1.3s var(--suave-saida) var(--d, 0ms), transform .72s var(--suave-hover), box-shadow .84s var(--suave-hover);
+  }
+  .quadro:hover {
+    transform: translateY(-7px) scale(1.02);
+    box-shadow: 0 24px 44px -22px color-mix(in srgb, var(--destaque) 32%, transparent), 0 0 0 2px var(--destaque);
+  }
+  .selo { translate: 0 10px; transition: opacity .6s var(--suave-saida), translate .7s var(--suave-saida) }
+  .quadro:hover .selo, .miniatura:hover .selo { opacity: 1; translate: 0 0; transition-delay: .12s }
+
+  .outro img { transition: transform .9s cubic-bezier(.22, 1, .36, 1), box-shadow .9s cubic-bezier(.22, 1, .36, 1) }
+  .miniatura:hover img {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 14px 26px -14px color-mix(in srgb, var(--destaque) 32%, transparent), 0 0 0 2px var(--destaque);
+  }
+
+  /* celulares do Diretório: o do mouse vem para frente, os outros recuam */
+  :global(.js) .telas > img {
+    transition: opacity .8s ease var(--atraso, 0ms), translate 1s var(--suave-saida) var(--atraso, 0ms),
+      scale .9s cubic-bezier(.22, 1, .36, 1), filter .7s ease, box-shadow .9s cubic-bezier(.22, 1, .36, 1);
+  }
+  .telas > img { position: relative }
+  .telas:hover > img:not(:hover) { filter: brightness(.55) saturate(.7) }
+  .telas > img:hover {
+    scale: 1.09; z-index: 1;
+    box-shadow: 0 36px 60px -22px rgb(0 0 0 / .8), 0 0 0 2px var(--marcador);
+  }
+}
