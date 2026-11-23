@@ -22,7 +22,7 @@ const en: Mensagens = {
     pergunta: 'What do you need?',
     pedir: 'Get a quote',
     verProjetos: 'See projects',
-    vitrine: 'Lead Manager and Diretório de Serviços, two of my systems in use today',
+    vitrine: 'Verto and Diretório de Serviços, two of my systems in use today',
     prova: [
       'Guest guide in use in about 160 rooms at Swan Novo Hamburgo',
       'Hired by the Swan chain for 3 more hotels',
@@ -39,15 +39,15 @@ const en: Mensagens = {
   },
 
   stack: {
-    React: ['Diretório de Serviços', 'Lead Manager', 'Irius Gastronomia', 'Coworking', 'Painter Robot'],
-    TypeScript: ['Diretório de Serviços', 'Digital Concierge', 'Lead Manager', 'Irius Gastronomia', 'This portfolio'],
-    'Tailwind CSS': ['Lead Manager'],
+    React: ['Diretório de Serviços', 'Verto', 'Irius Gastronomia', 'Coworking', 'Painter Robot'],
+    TypeScript: ['Diretório de Serviços', 'Digital Concierge', 'Verto', 'Irius Gastronomia', 'This portfolio'],
+    'Tailwind CSS': ['Verto'],
     JavaScript: ['Astrolábio (version 1)', 'Painter Robot'],
     'CSS Modules': ['Diretório de Serviços', 'Digital Concierge', 'Irius Gastronomia', 'This portfolio'],
     i18next: ['Diretório de Serviços (4 languages)', 'Irius (3 languages)', 'This portfolio (3 languages)'],
     Vite: ['Every project since 2025'],
-    Supabase: ['Lead Manager: sign-in, files and security', 'Irius: real-time orders'],
-    PostgreSQL: ['Lead Manager', 'Irius Gastronomia'],
+    Supabase: ['Verto: sign-in, files and security', 'Irius: real-time orders'],
+    PostgreSQL: ['Verto', 'Irius Gastronomia'],
     Firebase: ['Coworking'],
     'Node.js': ['Coworking'],
   },
@@ -93,9 +93,9 @@ const en: Mensagens = {
     },
     itens: {
       leadManager: {
-        nome: 'Lead Manager',
-        gancho: 'Event sales left the spreadsheet behind and got numbers to show the board.',
-        resumo: "A CRM for a hotel's events team, used every day by the team and the general manager: proposal pipeline, each client's history, month-by-month revenue and export to Excel and PDF. The live demo uses fictional data and signs in with one click.",
+        nome: 'Verto',
+        gancho: 'From the quote request to the event invoice, with no spreadsheet in between.',
+        resumo: "A CRM for a hotel's events department, used every day by its team. It recognizes returning clients and shows their history, follows each proposal until it closes, flags when a WhatsApp follow-up is overdue and moves closed events into the billing sheet. It also has conversion and revenue dashboards, a post-event satisfaction survey and LGPD-compliant mailing. The live demo uses fictional data and signs in with one click.",
       },
       restmenu: {
         nome: 'Irius Gastronomia',
@@ -122,7 +122,7 @@ const en: Mensagens = {
       {
         t: 'Custom systems',
         d: 'CRMs, dashboards with charts, admin areas and Excel and PDF reports, shaped around how your business works.',
-        exemplo: 'Like Lead Manager',
+        exemplo: 'Like Verto',
       },
       {
         t: 'Hotels and restaurants',

@@ -22,7 +22,7 @@ const es: Mensagens = {
     pergunta: '¿Qué necesitas?',
     pedir: 'Pedir presupuesto',
     verProjetos: 'Ver proyectos',
-    vitrine: 'Lead Manager y Diretório de Serviços, dos de mis sistemas en uso hoy',
+    vitrine: 'Verto y Diretório de Serviços, dos de mis sistemas en uso hoy',
     prova: [
       'Guía del huésped en uso en unas 160 habitaciones del Swan Novo Hamburgo',
       'Contratado por la red Swan para 3 hoteles más',
@@ -39,15 +39,15 @@ const es: Mensagens = {
   },
 
   stack: {
-    React: ['Diretório de Serviços', 'Lead Manager', 'Irius Gastronomia', 'Coworking', 'Painter Robot'],
-    TypeScript: ['Diretório de Serviços', 'Digital Concierge', 'Lead Manager', 'Irius Gastronomia', 'Este portafolio'],
-    'Tailwind CSS': ['Lead Manager'],
+    React: ['Diretório de Serviços', 'Verto', 'Irius Gastronomia', 'Coworking', 'Painter Robot'],
+    TypeScript: ['Diretório de Serviços', 'Digital Concierge', 'Verto', 'Irius Gastronomia', 'Este portafolio'],
+    'Tailwind CSS': ['Verto'],
     JavaScript: ['Astrolábio (versión 1)', 'Painter Robot'],
     'CSS Modules': ['Diretório de Serviços', 'Digital Concierge', 'Irius Gastronomia', 'Este portafolio'],
     i18next: ['Diretório de Serviços (4 idiomas)', 'Irius (3 idiomas)', 'Este portafolio (3 idiomas)'],
     Vite: ['Todos los proyectos desde 2025'],
-    Supabase: ['Lead Manager: login, archivos y seguridad', 'Irius: pedidos en tiempo real'],
-    PostgreSQL: ['Lead Manager', 'Irius Gastronomia'],
+    Supabase: ['Verto: login, archivos y seguridad', 'Irius: pedidos en tiempo real'],
+    PostgreSQL: ['Verto', 'Irius Gastronomia'],
     Firebase: ['Coworking'],
     'Node.js': ['Coworking'],
   },
@@ -93,9 +93,9 @@ const es: Mensagens = {
     },
     itens: {
       leadManager: {
-        nome: 'Lead Manager',
-        gancho: 'El área comercial de eventos dejó la planilla y ganó números para mostrar a la dirección.',
-        resumo: 'CRM del área de eventos de un hotel, usado todos los días por el equipo y el gerente general: embudo de propuestas, historial de cada cliente, ingresos mes a mes y exportación a Excel y PDF. La demo en línea usa datos ficticios y entra con un clic.',
+        nome: 'Verto',
+        gancho: 'Del pedido de presupuesto a la facturación del evento, sin planillas de por medio.',
+        resumo: 'CRM del área de eventos de un hotel, usado todos los días por el equipo. Reconoce al cliente que vuelve y muestra su historial, sigue cada propuesta hasta el cierre, avisa cuando falta un seguimiento por WhatsApp y lleva el evento cerrado a la planilla de facturación. También tiene paneles de conversión e ingresos, encuesta de satisfacción posevento y mailing que respeta la LGPD. La demo en línea usa datos ficticios y entra con un clic.',
       },
       restmenu: {
         nome: 'Irius Gastronomia',
@@ -122,7 +122,7 @@ const es: Mensagens = {
       {
         t: 'Sistemas a medida',
         d: 'CRMs, paneles con gráficos, áreas de administración e informes en Excel y PDF, a la manera en que trabaja tu negocio.',
-        exemplo: 'Como el Lead Manager',
+        exemplo: 'Como el Verto',
       },
       {
         t: 'Hoteles y restaurantes',

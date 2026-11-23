@@ -50,7 +50,7 @@ export default function Hero() {
 
         <figure className={s.vitrine}>
           <div className={s.desktop}>
-            <img src="projetos/lead-manager.webp" alt="" width={800} height={500} fetchPriority="high" />
+            <img src="projetos/lead-manager.webp" alt="" width={1280} height={800} fetchPriority="high" />
           </div>
           <div className={s.celular}>
             <img src="projetos/diretorio-caxias/app-inicio.webp" alt="" width={780} height={1688} />
