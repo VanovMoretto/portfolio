@@ -71,7 +71,7 @@ export default function About() {
       <div className={s.topo}>
         <div className={s.retrato} data-revela="cortina">
           {perfil.foto ? (
-            <img src={perfil.foto} alt={t('sobre.foto')} width={690} height={862} loading="lazy" />
+            <img src={perfil.foto} alt={t('sobre.foto')} width={800} height={800} loading="lazy" />
           ) : (
             <span className={s.monograma} aria-hidden="true">
               VM
